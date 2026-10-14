@@ -1,0 +1,76 @@
+{
+  "split_strategy": "Vehicle-grouped holdout: Vehicle 10 held out as unseen test vehicle (12 trips); Vehicle 541 (1 trip) and 7 trips of Vehicle 455 assigned to validation (8 trips); Remaining 31 trips of Vehicle 455 assigned to training.",
+  "seed": 42,
+  "total_eligible_trips": 51,
+  "train_count": 31,
+  "validation_count": 8,
+  "test_count": 12,
+  "train_vehicle_ids": [
+    "455"
+  ],
+  "validation_vehicle_ids": [
+    "455",
+    "541"
+  ],
+  "test_vehicle_ids": [
+    "10"
+  ],
+  "train_trip_keys": [
+    "455_1026",
+    "455_1143",
+    "455_1245",
+    "455_1262",
+    "455_1384",
+    "455_1402",
+    "455_1421",
+    "455_1492",
+    "455_1493",
+    "455_1510",
+    "455_1661",
+    "455_1716",
+    "455_1727",
+    "455_1779",
+    "455_1788",
+    "455_1879",
+    "455_1938",
+    "455_1954",
+    "455_1970",
+    "455_1997",
+    "455_2025",
+    "455_2154",
+    "455_2241",
+    "455_601",
+    "455_627",
+    "455_646",
+    "455_728",
+    "455_757",
+    "455_775",
+    "455_900",
+    "455_901"
+  ],
+  "validation_trip_keys": [
+    "541_845",
+    "455_1310",
+    "455_1373",
+    "455_2006",
+    "455_2105",
+    "455_2314",
+    "455_603",
+    "455_941"
+  ],
+  "test_trip_keys": [
+    "10_1582",
+    "10_1602",
+    "10_1875",
+    "10_1914",
+    "10_2011",
+    "10_2382",
+    "10_2384",
+    "10_2395",
+    "10_2556",
+    "10_2871",
+    "10_3017",
+    "10_3211"
+  ],
+  "limitation_note": "All three vehicles are 2013 Nissan Leafs. Generalization across different EV makes or battery architectures cannot be established from this dataset."
+}

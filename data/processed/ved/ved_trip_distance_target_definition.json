@@ -1,0 +1,20 @@
+{
+  "task_name": "VED Initial-Window EV Trip Distance Prediction",
+  "target_variable": "total_trip_distance_km",
+  "target_units": "kilometres",
+  "prediction_time": "At t = 30.0 seconds from vehicle trip commencement",
+  "observation_window": {
+    "duration_s": 30.0,
+    "sampling_frequency_hz": 1.0,
+    "steps": 30
+  },
+  "allowed_inputs": "Telemetry recorded strictly between t = 0 and t = 30 seconds: vehicle speed, battery current, battery voltage, power, SOC, outside air temperature, and cumulative window distance.",
+  "excluded_inputs": "Future telemetry (t > 30s), final trip duration, final energy consumption, final SOC, destination GPS coordinates, and any feature derived from completed trip.",
+  "distinction": "This task predicts the TOTAL completed trip distance in km, based on initial driving patterns. It is NOT remaining driving range and must not be presented as battery state of health.",
+  "limitations": [
+    "Dataset includes only 3 pure-EV vehicles, all 2013 Nissan Leafs.",
+    "Vehicle 541 has only 1 eligible trip; vehicle 10 has 12; vehicle 455 has 38.",
+    "Generalization across make/model or different climates cannot be assessed.",
+    "Sample size of 51 trips is exploratory and academic in nature."
+  ]
+}

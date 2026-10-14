@@ -1,0 +1,68 @@
+{
+  "report_version": 1,
+  "status": "calce_soh_evidence_incomplete",
+  "scope": {
+    "decision_report": "data/processed/CALCE/calce_reference_capacity_decision.json",
+    "manifest": "data/dataset_manifest.json",
+    "quality_report": "data/processed/CALCE/calce_pl_0_60_quality_report.json",
+    "included_readme": "data/raw/CALCE/SOC_0%-60%_HalfC/Readme.txt",
+    "archive": "data/raw/CALCE/PL_SOC_0-60_HalfC.zip",
+    "archive_members_verified": [
+      "SOC_0%-60%_HalfC/PL03.mat",
+      "SOC_0%-60%_HalfC/PL10.mat",
+      "SOC_0%-60%_HalfC/Readme.txt"
+    ],
+    "raw_files_modified": false,
+    "soh_labels_generated": false,
+    "battery_health_model_trained": false
+  },
+  "evidence_status": {
+    "confirmed": [
+      "The included README documents PL03 and PL10, 0%-60% SOC cycling at C/2 and room temperature (25 +/- 2 C), operation labels, start dates, measurement fields, units, and the test-system software-fault explanation for operations labeled Data Missing.",
+      "The CALCE dataset manifest and quality report describe a general full-capacity characterization procedure: full CC-CV charge followed by C/2 CC discharge between 4.2 V and 2.75 V, described at intervals of 50 or 100 partial cycles.",
+      "The extracted local exports include four records labeled Single Cycle (two per cell) and 40 files labeled 50, 75, or 100 Partial Cycles. Four additional 50 Partial Cycles operations are labeled Data Missing in the source descriptions and have no corresponding CSV exports.",
+      "The four Single Cycle CSVs contain candidate charge and discharge behavior, including Step 6 discharge near -0.75 A to approximately 2.75 V. Their source operation label alone does not establish that they are reference-performance tests.",
+      "The MAT files are documented in local metadata as MATLAB 5.0 files containing MCOS table objects. The current quality report records that the measurement tables have not been decoded, so reference-cycle matching and cycle-level capacity validation remain incomplete."
+    ],
+    "not_confirmed_or_not_locally_available": [
+      "A primary CALCE protocol or Arbin schedule with step definitions and acceptance conditions. The general procedure recorded in project metadata is not a copy of the authoritative schedule and does not map steps to specific source operations.",
+      "Authoritative mapping of the four Single Cycle exports (PL03/PL10 outer rows 2 and 18) to full-capacity/reference-performance tests, or confirmation of their intended purpose.",
+      "Per-cell records proving full-charge conditioning before each proposed capacity discharge, including CC and CV setpoints, voltage limit, CV termination current/time, rest requirements, and completion status.",
+      "Exact reference-performance cycle identifiers and complete source measurement rows, including charge, rest, and discharge phases, for each PL03 and PL10 characterization event.",
+      "The discharge protocol's rate, configured lower-voltage cutoff, termination criteria, rest/stabilization requirements, and any acceptance or repeatability criteria as applied to these cells.",
+      "Arbin capacity-counter semantics at each relevant step/cycle boundary, including reset behavior and the authoritative capacity field/interval used as the accepted capacity result.",
+      "A CALCE-approved per-cell reference-capacity selection rule identifying which verified characterization measurement is the baseline.",
+      "Relevant instrument calibration or test-system quality records if CALCE requires them to interpret capacity accuracy or flagged operation gaps."
+    ],
+    "important_distinction": "The missing items above are missing from or not verifiable in the local material reviewed. This does not prove that CALCE never recorded them. Existing metadata summarizes a general characterization protocol, but not the authoritative schedule, per-cell conditioning, or verified reference-cycle mapping."
+  },
+  "request_from": {
+    "primary_institution": "University of Maryland Center for Advanced Life Cycle Engineering (CALCE), the originating battery-data source/custodian.",
+    "official_source": "https://calce.umd.edu/battery-data",
+    "request_subject": "PL03 and PL10, 0%-60% SOC, C/2 pouch-cell data; original Arbin protocol and reference-performance records",
+    "request_items": [
+      "The authoritative Arbin test schedule/protocol and version used for PL03 and PL10, including operation/outer-row mapping, step names/types, current setpoints, voltage limits, CV termination criteria, rest periods, discharge rate and cutoff, and characterization acceptance criteria.",
+      "Confirmation whether source operation rows 2 and 18 (the local Single Cycle exports) are full-capacity/reference-performance tests, and identification of every reference-performance test embedded in the partial-cycle operation blocks.",
+      "Complete per-cell charge-conditioning and reference-performance logs for the identified tests, with timestamps, cycle and step identifiers, current, voltage, capacity counters, and any available temperature channels.",
+      "The prescribed capacity extraction method, counter reset/continuity semantics, and rule for selecting the baseline/reference capacity for each cell.",
+      "Any test-system fault, rerun, exclusion, calibration, or quality-control records relevant to the reported capacity measurements and the four operations labeled Data Missing."
+    ],
+    "secondary_source_if_needed": "If CALCE confirms the schedule was generated or held by a test-system operator, request the corresponding original Arbin schedule and experiment export from that operator through CALCE. Do not treat an Arbin software manual alone as evidence of the schedule actually used."
+  },
+  "blocked_until_evidence_is_obtained_and_verified": [
+    "Assigning a numeric SOH target or reference capacity to PL03 or PL10.",
+    "Generating or publishing CALCE SOH labels, including labels based on candidate Discharge_Ah counters or a selected maximum/first observed value.",
+    "Approving CALCE records for SOH training or combining them with NASA battery data for that purpose.",
+    "Training, tuning, or evaluating battery-health/SOH models (including XGBoost, LSTM, GRU, or CNN-LSTM) or claiming CALCE SOH prediction performance.",
+    "Using CALCE-derived SOH predictions in the battery-health API or presenting them as measured/validated health estimates."
+  ],
+  "safe_parallel_work_without_soh_labels": [
+    "Continue investigating or implementing a documented MCOS table decoder/export path, preserving raw inputs, original columns, units, timestamps, operation labels, source row identity, and provenance; do not infer targets during decoding.",
+    "Build schema, provenance, and quality-report validation for the exported measurements, including missing/non-finite values, duplicates, cycle and time ordering, counter resets, and outlier flags without silently deleting records.",
+    "Prepare pipeline and manifest status handling so CALCE remains explicitly blocked until protocol and target validation criteria pass.",
+    "Develop leak-resistant battery-level split utilities, feature/target separation checks, and preprocessing fit/apply code using unit tests or clearly synthetic fixtures only.",
+    "Prepare model training/evaluation interfaces and metric/report serialization without fitting or evaluating a battery SOH model on CALCE or NASA targets.",
+    "Document the future data-validation acceptance checklist and provenance requirements in machine-readable project artifacts; do not alter existing documentation files as part of this task."
+  ],
+  "decision": "Keep CALCE SOH labeling and model training blocked pending authoritative CALCE protocol/schedule evidence, complete per-cell conditioning and reference-test records, and a verified capacity extraction/reference-selection rule."
+}

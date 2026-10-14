@@ -1,0 +1,183 @@
+{
+  "experiment_status": "completed_exploratory_single_battery_chronological_holdout",
+  "target_name": "B0005 discharge capacity as percent of documented rated capacity",
+  "target_definition": "100 * measured discharge Capacity (Ah) / 2.0 Ah documented rated capacity",
+  "target_semantics": "Capacity-to-rated-capacity ratio. Not measured-reference SOH, not a cell-specific measured baseline.",
+  "scope_and_limitations": {
+    "battery_ids": [
+      "B0005"
+    ],
+    "generalization_to_other_batteries_claimed": false,
+    "records_used": 168,
+    "below_1_4_ah_records_retained": 44,
+    "below_1_4_ah_records_excluded": 0,
+    "eol_discrepancy": "The local README states a 1.4 Ah stopping criterion, but the raw sequence contains measurements below it; the cause remains unresolved.",
+    "measured_reference_soh_training_status": "blocked",
+    "evaluation_interpretation": "A chronological holdout from one cell measures only within-B0005 later-cycle prediction under this observed protocol; it is not an independent-cell validation.",
+    "test_partition_shift": "The final test partition consists entirely of observations below the README's 1.4 Ah EOL threshold; the validation partition crosses that threshold. This observed tail shift limits interpretation of the holdout scores."
+  },
+  "prediction_time_features": {
+    "columns": [
+      "discharge_ordinal",
+      "elapsed_hours_before_discharge"
+    ],
+    "definitions_and_units": {
+      "discharge_ordinal": "Count of completed/target discharge position; unitless and known from operation order.",
+      "elapsed_hours_before_discharge": "Elapsed hours from the first pre-discharge operation start to the most recent completed operation start; hours."
+    },
+    "excluded_fields": [
+      "capacity_ah",
+      "capacity_to_rated_capacity_percent",
+      "current_mean",
+      "discharge_duration_s",
+      "elapsed_hours",
+      "reference_capacity_ah",
+      "soh_percent",
+      "start_time",
+      "temperature_mean",
+      "voltage_max",
+      "voltage_mean",
+      "voltage_min"
+    ],
+    "contract": "Features are limited to the next discharge ordinal and the timestamp of the immediately preceding completed operation. The timestamp is strictly earlier than target-discharge start. No target capacity, target discharge trace, future measurements, or target-derived fields enter X.",
+    "timestamp_availability_limitation": "The elapsed-time feature uses the latest completed operation timestamp, not the target discharge timestamp. A deployed system must provide an equivalent prior-operation timestamp."
+  },
+  "chronological_split": {
+    "fractions": {
+      "train": 0.6,
+      "validation": 0.2,
+      "test": 0.2
+    },
+    "minimum_partition_rows": 20,
+    "partitions": {
+      "train": {
+        "rows": 100,
+        "first_source_cycle_index": 2,
+        "last_source_cycle_index": 352,
+        "first_timestamp": "2008-04-02T15:25:41.593000",
+        "last_timestamp": "2008-05-11T16:49:58.921000",
+        "below_1_4_ah_records_retained": 0,
+        "target_range_percent": {
+          "minimum": 74.29341922806006,
+          "maximum": 92.82437104090788
+        }
+      },
+      "validation": {
+        "rows": 34,
+        "first_source_cycle_index": 356,
+        "last_source_cycle_index": 483,
+        "first_timestamp": "2008-05-11T21:47:12.843000",
+        "last_timestamp": "2008-05-19T20:59:48.437000",
+        "below_1_4_ah_records_retained": 10,
+        "target_range_percent": {
+          "minimum": 68.23677554340759,
+          "maximum": 74.80459149068348
+        }
+      },
+      "test": {
+        "rows": 34,
+        "first_source_cycle_index": 485,
+        "last_source_cycle_index": 614,
+        "first_timestamp": "2008-05-20T01:16:42.609000",
+        "last_timestamp": "2008-05-27T20:45:42.125000",
+        "below_1_4_ah_records_retained": 34,
+        "target_range_percent": {
+          "minimum": 64.37262610689703,
+          "maximum": 68.49250017919469
+        }
+      }
+    },
+    "shuffling": false,
+    "validation_use": "Candidate model selection by validation RMSE.",
+    "final_fit": "Selected estimator and preprocessing refit on train + validation only; test held out.",
+    "preprocessing": "Median imputation is inside each sklearn Pipeline and is fit only on that fit's training partition; no feature scaler used for tree models or linear regression."
+  },
+  "model_selection": {
+    "selection_metric": "validation RMSE in percentage points",
+    "validation_metrics": {
+      "linear_regression": {
+        "rmse_percentage_points": 1.6239485109290261,
+        "mae_percentage_points": 1.3552966712120935,
+        "r2": 0.2240621773998872
+      },
+      "random_forest": {
+        "rmse_percentage_points": 4.599679373471582,
+        "mae_percentage_points": 4.214061355549681,
+        "r2": -5.224973837189874
+      },
+      "xgboost": {
+        "rmse_percentage_points": 4.076384208179073,
+        "mae_percentage_points": 3.6356802640343715,
+        "r2": -3.889141785969408
+      }
+    },
+    "selected_model": "linear_regression",
+    "configurations": {
+      "linear_regression": {
+        "class": "sklearn.linear_model.LinearRegression"
+      },
+      "random_forest": {
+        "class": "sklearn.ensemble.RandomForestRegressor",
+        "n_estimators": 300,
+        "min_samples_leaf": 4,
+        "random_state": 42,
+        "n_jobs": 1
+      },
+      "xgboost": {
+        "class": "xgboost.XGBRegressor",
+        "objective": "reg:squarederror",
+        "n_estimators": 250,
+        "max_depth": 2,
+        "learning_rate": 0.03,
+        "subsample": 1.0,
+        "colsample_bytree": 1.0,
+        "reg_lambda": 1.0,
+        "random_state": 42,
+        "n_jobs": 1
+      },
+      "mean_baseline": {
+        "class": "sklearn.dummy.DummyRegressor",
+        "strategy": "mean"
+      }
+    },
+    "seed": 42
+  },
+  "final_test_metrics": {
+    "selected_model": {
+      "rmse_percentage_points": 3.7119549187301715,
+      "mae_percentage_points": 3.400031787060712,
+      "r2": -10.17135712372728
+    },
+    "selected_model_name": "linear_regression",
+    "mean_baseline": {
+      "rmse_percentage_points": 15.557380037570312,
+      "mae_percentage_points": 15.517689467004876,
+      "r2": -195.23364502310275
+    },
+    "performance_assessment": "Not validated for deployment or generalization: the selected model has negative chronological test R2, and all test rows are below the documented EOL threshold. The run demonstrates pipeline execution only."
+  },
+  "target_distribution": {
+    "minimum_percent": 64.37262610689703,
+    "maximum_percent": 92.82437104090788,
+    "mean_percent": 78.62510321358768,
+    "below_70_percent_records": 44,
+    "values_clipped": false
+  },
+  "reproducibility": {
+    "seed": 42,
+    "raw_file": "data/raw/NASA/B0005.mat",
+    "raw_file_sha256": "0eae4585baf3f200c09fe24c5ab884f1889679fc75206ca1aa19da704104f0b0",
+    "python_version": "3.12.4",
+    "numpy_version": "2.5.3",
+    "pandas_version": "3.0.6",
+    "scikit_learn_version": "1.9.1",
+    "xgboost_version": "3.4.1",
+    "outputs": [
+      "observations.csv",
+      "predictions.csv",
+      "test_predictions.png",
+      "selected_model.joblib",
+      "experiment_report.json"
+    ]
+  }
+}

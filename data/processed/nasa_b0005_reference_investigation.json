@@ -1,0 +1,2794 @@
+{
+  "report_status": "candidate_investigation_complete_reference_capacity_not_established",
+  "scope": {
+    "battery_id": "B0005",
+    "raw_file": "data/raw/NASA/B0005.mat",
+    "source_cycle_operations": 616,
+    "raw_operation_counts": {
+      "charge": 170,
+      "discharge": 168,
+      "impedance": 278
+    },
+    "discharge_record_count": 168,
+    "raw_files_modified": false,
+    "processed_labels_modified": false,
+    "models_trained": false
+  },
+  "source_evidence": {
+    "local_readme": "data/raw/NASA/README1.txt",
+    "dataset_source_url": "https://data.nasa.gov/dataset/li-ion-battery-aging-datasets",
+    "readme_protocol": {
+      "ambient_temperature_c": 24,
+      "charge_protocol": "CC 1.5 A to 4.2 V, then CV until charge current falls to 20 mA",
+      "discharge_protocol": "CC 2 A to 2.7 V for battery 5",
+      "capacity_field": "Discharge capacity in Ah for discharge to 2.7 V",
+      "rated_capacity_ah": 2.0,
+      "documented_eol_capacity_ah": 1.4,
+      "documented_eol_rule": "30% fade from 2.0 Ah rated capacity",
+      "other_operation": "EIS frequency sweep from 0.1 Hz to 5 kHz"
+    },
+    "interpretation": "The B0005 protocol matches the README description attached to the Capacity field (2 A discharge to 2.7 V at room temperature), so capacities are conditionally comparable under the documented protocol. The README does not designate any particular observed discharge as a baseline/reference-performance test or say that the first observed Capacity measurement is the cell-specific beginning-of-life capacity.",
+    "eol_protocol_discrepancy": "README1.txt says experiments stopped at 1.4 Ah, but the raw B0005 file contains 44 discharge measurements below 1.4 Ah. The first below-threshold observation is source cycle index 449 at 1.3967008233 Ah; the final recorded capacity is 1.3250793286 Ah. Available local records do not explain why data continue below the stated EOL criterion; do not infer the reason."
+  },
+  "raw_capacity_findings": {
+    "measurement_unit": "Ah",
+    "discharge_records": 168,
+    "positive_finite_records": 168,
+    "nonpositive_or_nonfinite_records": 0,
+    "capacity_summary_ah": {
+      "minimum": 1.2874525221379407,
+      "q10": 1.3235231590182135,
+      "median": 1.5570854602045165,
+      "maximum": 1.8564874208181574,
+      "first_observed": 1.8564874208181574,
+      "last_observed": 1.3250793286429356
+    },
+    "review_threshold_counts_only_not_scientific_validity_limits": {
+      "below_0_5_ah": 0,
+      "above_2_0_ah": 0
+    },
+    "first_10_positive_median_ah_not_adopted": 1.8352043352523866,
+    "trace_diagnostics_not_capacity_substitutes": {
+      "minimum_sampled_terminal_voltage_v_across_cycles": 2.4556793246645583,
+      "minimum_last_sample_terminal_voltage_v": 3.2050689156049863,
+      "maximum_last_sample_terminal_voltage_v": 3.621191032853697,
+      "median_absolute_current_median_per_cycle_a": 2.012308837371185,
+      "median_trace_duration_s": 3086.078,
+      "interpretation": "Sparse sampled traces corroborate operation context only; they are not used to replace the source Capacity field or establish a reference."
+    },
+    "cycle_by_cycle_discharge_records": [
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 2,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          2.0,
+          15.0,
+          25.0,
+          41.593
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8564874208181574
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 4,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          2.0,
+          19.0,
+          43.0,
+          48.406
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.846327249719927
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 6,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          3.0,
+          0.0,
+          1.0,
+          6.687
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8353491942234077
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 8,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          3.0,
+          4.0,
+          16.0,
+          37.375
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8352625275821128
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 10,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          3.0,
+          8.0,
+          33.0,
+          25.703
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8346455082120419
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 12,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          3.0,
+          12.0,
+          55.0,
+          10.687
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8356616600675495
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 14,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          3.0,
+          17.0,
+          17.0,
+          16.015
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8351461429226603
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 16,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          3.0,
+          21.0,
+          28.0,
+          14.718
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8257567905665537
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 18,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          4.0,
+          1.0,
+          38.0,
+          15.218
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8247738529891333
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 20,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          4.0,
+          5.0,
+          48.0,
+          8.609
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.824613268496936
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 22,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          4.0,
+          9.0,
+          57.0,
+          19.765
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8246195526864504
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 25,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          4.0,
+          17.0,
+          56.0,
+          27.609
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8142019357673917
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 27,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          4.0,
+          22.0,
+          1.0,
+          54.671
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8137521577549054
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 29,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          5.0,
+          2.0,
+          20.0,
+          26.703
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8134404914735822
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 31,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          5.0,
+          6.0,
+          25.0,
+          1.8900000000000001
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8025980036306504
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 33,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          5.0,
+          10.0,
+          30.0,
+          32.312
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.80210690024615
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 35,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          5.0,
+          14.0,
+          34.0,
+          41.468
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.802579500826209
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 37,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          5.0,
+          18.0,
+          39.0,
+          25.218
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8030683142834096
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 39,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          5.0,
+          22.0,
+          46.0,
+          35.484
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8027776247196041
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 42,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          18.0,
+          21.0,
+          10.0,
+          19.796
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8470259949329193
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 46,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          19.0,
+          2.0,
+          29.0,
+          9.0
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.847417311283644
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 50,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          19.0,
+          7.0,
+          47.0,
+          15.703
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8361774213478947
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 54,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          19.0,
+          13.0,
+          1.0,
+          42.562
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8257807475776242
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 58,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          19.0,
+          18.0,
+          27.0,
+          29.828
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8251136435078368
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 62,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          19.0,
+          23.0,
+          41.0,
+          55.687
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8255815042203762
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 66,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          20.0,
+          4.0,
+          54.0,
+          41.734
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8140311275083907
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 70,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          20.0,
+          10.0,
+          16.0,
+          28.859
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8147691941158939
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 74,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          20.0,
+          15.0,
+          37.0,
+          5.281
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.813969388710352
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 78,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          20.0,
+          20.0,
+          50.0,
+          38.921
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.802765665167823
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 82,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          21.0,
+          2.0,
+          15.0,
+          2.9210000000000003
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.804077040117352
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 86,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          22.0,
+          15.0,
+          33.0,
+          49.875
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8518025516704486
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 90,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          22.0,
+          20.0,
+          26.0,
+          18.921
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8307038456739428
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 94,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          23.0,
+          1.0,
+          18.0,
+          11.796
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8199041089501267
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 98,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          23.0,
+          6.0,
+          18.0,
+          19.921
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.8093079637028517
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 102,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          23.0,
+          11.0,
+          8.0,
+          0.312
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.80460990458052
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 106,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          23.0,
+          16.0,
+          6.0,
+          25.171
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7993770651972192
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 110,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          23.0,
+          21.0,
+          2.0,
+          58.296
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7884432335370462
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 114,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          24.0,
+          1.0,
+          51.0,
+          33.89
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7829230484252723
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 118,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          24.0,
+          6.0,
+          50.0,
+          0.031
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7730337158018288
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 122,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          24.0,
+          11.0,
+          49.0,
+          24.281
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.773037755078937
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 126,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          24.0,
+          16.0,
+          45.0,
+          56.015
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7678721106662054
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 130,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          24.0,
+          21.0,
+          38.0,
+          11.078
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7623150704093087
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 134,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          25.0,
+          12.0,
+          3.0,
+          44.093
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7676172924938447
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 136,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          25.0,
+          20.0,
+          3.0,
+          55.921
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.762668359743147
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 140,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          26.0,
+          1.0,
+          4.0,
+          35.718
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7517304870664143
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 144,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          26.0,
+          5.0,
+          57.0,
+          35.14
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7418496047960008
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 148,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          26.0,
+          10.0,
+          58.0,
+          25.843
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7360913511847138
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 150,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          29.0,
+          12.0,
+          15.0,
+          56.953
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7936240148573608
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 154,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          29.0,
+          17.0,
+          5.0,
+          27.781
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7831890223273275
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 158,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          29.0,
+          22.0,
+          0.0,
+          4.75
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7673642076278957
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 162,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          30.0,
+          2.0,
+          43.0,
+          55.312
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7570177850353066
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 166,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          30.0,
+          7.0,
+          41.0,
+          42.578
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7468706179837907
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 170,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          30.0,
+          12.0,
+          28.0,
+          49.265
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7417172507457144
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 174,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          30.0,
+          17.0,
+          20.0,
+          16.14
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7364225056478186
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 178,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          4.0,
+          30.0,
+          22.0,
+          14.0,
+          54.062
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7263217239235826
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 182,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          1.0,
+          3.0,
+          15.0,
+          33.14
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7158065389330133
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 186,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          1.0,
+          8.0,
+          16.0,
+          3.343
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.710533351135192
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 190,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          1.0,
+          13.0,
+          14.0,
+          24.875
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.706014499648521
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 194,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          1.0,
+          18.0,
+          11.0,
+          10.984
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.7003110272642588
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 198,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          1.0,
+          23.0,
+          10.0,
+          15.265
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.6945798601797895
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 202,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          2.0,
+          3.0,
+          53.0,
+          34.765
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.6849029086609286
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 206,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          2.0,
+          8.0,
+          44.0,
+          40.859
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.6744741591159717
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 210,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          2.0,
+          13.0,
+          43.0,
+          5.093
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.6745692479879102
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 214,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          2.0,
+          19.0,
+          7.0,
+          48.359
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.663716375981405
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 216,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          2.0,
+          23.0,
+          24.0,
+          17.687
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.659013868748246
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 220,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          3.0,
+          4.0,
+          13.0,
+          8.609
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.6538540573335014
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 224,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          3.0,
+          9.0,
+          10.0,
+          19.812
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.642653782130131
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 228,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          3.0,
+          14.0,
+          4.0,
+          34.187
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.6378578430223698
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 232,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          3.0,
+          18.0,
+          58.0,
+          13.468
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.6327350407099108
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 236,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          3.0,
+          23.0,
+          42.0,
+          30.093
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.6277528915533617
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 240,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          4.0,
+          4.0,
+          41.0,
+          40.0
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.622125485521159
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 244,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          4.0,
+          9.0,
+          40.0,
+          11.906
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.6113256603765849
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 248,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          4.0,
+          14.0,
+          38.0,
+          13.359
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.6065631397488385
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 252,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          4.0,
+          19.0,
+          37.0,
+          7.89
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.6015142233917594
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 256,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          5.0,
+          0.0,
+          35.0,
+          53.968
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.590369231400328
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 260,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          5.0,
+          5.0,
+          28.0,
+          13.937
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5857889968242211
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 264,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          5.0,
+          11.0,
+          41.0,
+          31.5
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5849430707374117
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 266,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          5.0,
+          20.0,
+          40.0,
+          8.562
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5955263892495937
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 270,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          6.0,
+          1.0,
+          38.0,
+          46.265
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5747301747801037
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 274,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          6.0,
+          6.0,
+          37.0,
+          6.296
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5649019950937946
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 278,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          6.0,
+          11.0,
+          25.0,
+          21.031
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5597659473370362
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 282,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          6.0,
+          16.0,
+          23.0,
+          36.296
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5594815668184234
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 286,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          6.0,
+          21.0,
+          21.0,
+          49.265
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.55468935359061
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 290,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          7.0,
+          2.0,
+          17.0,
+          25.156
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5488741079890418
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 294,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          7.0,
+          7.0,
+          4.0,
+          2.109
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.538236598942558
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 298,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          7.0,
+          12.0,
+          1.0,
+          49.906
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.527914258251028
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 302,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          7.0,
+          16.0,
+          59.0,
+          29.937
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5285252629756445
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 306,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          7.0,
+          21.0,
+          56.0,
+          9.656
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.522647325284378
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 310,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          8.0,
+          2.0,
+          53.0,
+          49.937
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5174859938489869
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 313,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          9.0,
+          12.0,
+          25.0,
+          7.0
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.605818899130659
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 316,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          9.0,
+          20.0,
+          28.0,
+          9.734
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5638491446744425
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 320,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          10.0,
+          1.0,
+          21.0,
+          56.5
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5480915247767786
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 324,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          10.0,
+          6.0,
+          18.0,
+          12.0
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5323755631868592
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 328,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          10.0,
+          11.0,
+          16.0,
+          4.843
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5269528268489705
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 332,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          10.0,
+          16.0,
+          11.0,
+          56.109
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5169573017136326
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 336,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          10.0,
+          21.0,
+          7.0,
+          54.625
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5118975960142693
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 340,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          11.0,
+          2.0,
+          5.0,
+          21.796
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5065638960681105
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 344,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          11.0,
+          6.0,
+          55.0,
+          27.734
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.5015453526671363
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 348,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          11.0,
+          11.0,
+          52.0,
+          47.187
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4908444050400238
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 352,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          11.0,
+          16.0,
+          49.0,
+          58.921
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.485868384561201
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 356,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          11.0,
+          21.0,
+          47.0,
+          12.843
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.480413677976106
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 360,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          12.0,
+          2.0,
+          36.0,
+          58.921
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4752095869031632
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 364,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          12.0,
+          12.0,
+          56.0,
+          34.781
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4859035988304024
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 367,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          12.0,
+          18.0,
+          59.0,
+          59.453
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4960918298136696
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 371,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          12.0,
+          23.0,
+          53.0,
+          17.609
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4808005946928984
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 375,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          13.0,
+          4.0,
+          35.0,
+          25.359
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4697543268466824
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 379,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          13.0,
+          9.0,
+          24.0,
+          4.718
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4539012274845928
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 383,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          13.0,
+          14.0,
+          20.0,
+          24.937
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4541462067235693
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 387,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          13.0,
+          19.0,
+          4.0,
+          20.531
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.455023751906683
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 391,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          13.0,
+          23.0,
+          59.0,
+          26.015
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.449042163761236
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 395,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          14.0,
+          4.0,
+          55.0,
+          57.453
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4386709371480566
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 399,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          14.0,
+          9.0,
+          52.0,
+          22.062
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.433445432156979
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 403,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          14.0,
+          14.0,
+          35.0,
+          22.515
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4333958900838095
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 407,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          14.0,
+          19.0,
+          31.0,
+          39.39
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.42806487344776
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 411,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          15.0,
+          0.0,
+          27.0,
+          55.625
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4229203181741186
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 415,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          15.0,
+          5.0,
+          24.0,
+          4.89
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.417429032731308
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 419,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          15.0,
+          10.0,
+          20.0,
+          3.875
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.412409228794446
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 423,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          15.0,
+          15.0,
+          10.0,
+          59.437
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.412578792940193
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 427,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          15.0,
+          19.0,
+          56.0,
+          47.39
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4075983731469897
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 431,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          16.0,
+          16.0,
+          54.0,
+          59.812
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4333920485221476
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 433,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          16.0,
+          21.0,
+          37.0,
+          39.671
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4382550176792908
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 437,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          17.0,
+          2.0,
+          32.0,
+          13.968
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4173547174485526
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 441,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          17.0,
+          7.0,
+          25.0,
+          19.906
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.406981663677643
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 445,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          17.0,
+          12.0,
+          21.0,
+          15.89
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.4012037783587625
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 449,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          17.0,
+          17.0,
+          15.0,
+          37.281
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3967008232726328
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 453,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          17.0,
+          22.0,
+          10.0,
+          51.218
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.391284788852726
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 457,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          18.0,
+          3.0,
+          5.0,
+          19.265
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3862287677978349
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 461,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          18.0,
+          8.0,
+          0.0,
+          50.421
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3804366761974138
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 465,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          18.0,
+          12.0,
+          44.0,
+          48.437
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3752364150256224
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 469,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          18.0,
+          17.0,
+          36.0,
+          29.734
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3705128024895008
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 473,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          18.0,
+          22.0,
+          31.0,
+          45.515
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3705085566270399
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 477,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          19.0,
+          3.0,
+          27.0,
+          7.765
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3647355108681518
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 481,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          19.0,
+          15.0,
+          34.0,
+          33.625
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.375392016895762
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 483,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          19.0,
+          20.0,
+          59.0,
+          48.437
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3861115151535393
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 485,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          20.0,
+          1.0,
+          16.0,
+          42.609
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3698500035838939
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 489,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          20.0,
+          6.0,
+          12.0,
+          6.265
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3647827949260758
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 493,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          20.0,
+          11.0,
+          7.0,
+          23.453
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3543220466259964
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 497,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          20.0,
+          15.0,
+          57.0,
+          27.312
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3546417018378962
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 501,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          20.0,
+          20.0,
+          50.0,
+          39.015
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3547039213192407
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 505,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          21.0,
+          1.0,
+          39.0,
+          38.968
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.349314997503458
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 509,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          21.0,
+          6.0,
+          24.0,
+          27.281
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3441891937970554
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 513,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          21.0,
+          11.0,
+          18.0,
+          6.015
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3389913790695755
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 517,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          21.0,
+          16.0,
+          10.0,
+          21.203
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3389145230206971
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 521,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          21.0,
+          21.0,
+          2.0,
+          9.781
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3340066759761655
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 525,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          22.0,
+          1.0,
+          42.0,
+          59.218
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3286444309174914
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 529,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          22.0,
+          6.0,
+          32.0,
+          40.921
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3231708992276219
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 533,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          22.0,
+          11.0,
+          23.0,
+          22.187
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3181691588445197
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 537,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          22.0,
+          16.0,
+          17.0,
+          58.89
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3184664436640334
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 541,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          22.0,
+          20.0,
+          59.0,
+          50.203
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.318293040102702
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 545,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          23.0,
+          12.0,
+          13.0,
+          16.359
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.323872422244268
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 548,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          23.0,
+          20.0,
+          14.0,
+          29.875
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3601216766554785
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 552,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          24.0,
+          1.0,
+          9.0,
+          21.562
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3395306867947354
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 556,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          24.0,
+          6.0,
+          0.0,
+          20.156
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3290286565120697
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 560,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          24.0,
+          10.0,
+          42.0,
+          50.484
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3236741274998955
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 564,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          24.0,
+          15.0,
+          31.0,
+          10.593
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.318633896753293
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 568,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          24.0,
+          20.0,
+          21.0,
+          13.437
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3134751321324272
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 572,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          25.0,
+          1.0,
+          6.0,
+          49.828
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3132020634442203
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 576,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          25.0,
+          5.0,
+          57.0,
+          17.89
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3077959946944353
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 580,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          25.0,
+          10.0,
+          51.0,
+          37.015
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3030329186405918
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 584,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          25.0,
+          15.0,
+          37.0,
+          8.89
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3033573559038205
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 588,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          25.0,
+          20.0,
+          23.0,
+          4.453
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3034100438655642
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 592,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          26.0,
+          1.0,
+          13.0,
+          2.7960000000000003
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.2978870806495706
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 596,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          26.0,
+          6.0,
+          1.0,
+          8.171
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.2980735056918902
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 600,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          26.0,
+          10.0,
+          44.0,
+          38.468
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.293463613844243
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 604,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          26.0,
+          15.0,
+          30.0,
+          43.968
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.288003392619118
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 608,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          26.0,
+          20.0,
+          21.0,
+          4.921
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.2874525221379407
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 612,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          27.0,
+          15.0,
+          52.0,
+          41.359
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3090153642307354
+      },
+      {
+        "source_file": "B0005.mat",
+        "battery_id": "B0005",
+        "source_cycle_index": 614,
+        "operation": "discharge",
+        "start_time_components_matlab_date_vector": [
+          2008.0,
+          5.0,
+          27.0,
+          20.0,
+          45.0,
+          42.125
+        ],
+        "ambient_temperature_c": 24.0,
+        "capacity_ah": 1.3250793286429356
+      }
+    ]
+  },
+  "capacity_ratio_vs_soh": {
+    "rated_capacity_ratio_definition": "100 * measured discharge capacity (Ah) / documented rated capacity (2.0 Ah)",
+    "rated_capacity_ratio_interpretation": "A measured-capacity-to-rated-capacity ratio (nominal-capacity comparison), not SOH relative to a measured cell-specific reference. The denominator is rated capacity, not a baseline measurement from B0005.",
+    "measured_reference_soh_definition": "100 * measured discharge capacity (Ah) / a source-validated B0005 reference capacity (Ah) obtained using a documented comparable reference-performance test.",
+    "measured_reference_soh_status": "blocked; no such B0005 reference test/measurement is identified in the available records",
+    "do_not_infer_measured_baseline_from_first_cycle": true,
+    "do_not_treat_first_10_positive_median_as_validated": true
+  },
+  "prediction_time_feature_contract": {
+    "prediction_horizon_assumption": "Predict the next discharge capacity/SOH before that target discharge begins; features must be known by this cutoff.",
+    "potential_features_if_available_before_cutoff": [
+      "cycle index / completed-cycle count",
+      "elapsed time derived only from prior timestamps",
+      "ambient temperature known before the target cycle",
+      "summary features from completed earlier charge/discharge traces (voltage, current, cell temperature, duration)",
+      "features from a completed earlier EIS operation, when EIS is explicitly part of the intended deployment protocol"
+    ],
+    "exclude_as_target_leakage": [
+      "target cycle Capacity",
+      "target-cycle discharge trace or any statistic requiring samples after prediction time",
+      "future cycles or post-target measurements",
+      "the target-defining reference capacity/denominator as a model input unless a separately validated deployment contract proves it is independently available and not label-derived"
+    ],
+    "split_requirement": "Use chronological splits for next-cycle prediction; never randomly split cycles from the same battery across train and evaluation. B0005 alone cannot establish generalization to unseen batteries."
+  },
+  "decision": {
+    "cell_specific_reference_capacity_supported": false,
+    "capacity_based_soh_labels_approved": false,
+    "soh_training_status": "blocked",
+    "why": "Protocol compatibility makes the Capacity observations useful for within-protocol degradation analysis, but available documentation only supplies rated-capacity and EOL criteria; it does not identify a B0005 measured reference-performance test or validate any observed cycle as the reference. The raw cycle sequence alone cannot establish that missing experimental designation. Also, the raw data continue below the README's stated 1.4 Ah stopping criterion, and the available files do not explain this discrepancy.",
+    "exact_missing_evidence": [
+      "Authoritative B0005 test-schedule/protocol record identifying a full-capacity reference-performance test and its cycle/time/location in the sequence.",
+      "The actual conditioning and measurement record for any nominated baseline: charge sequence, rest interval if any, ambient temperature, and confirmation of the complete 2 A CC discharge to 2.7 V.",
+      "Clarification whether the first recorded discharge is an initial characterization or already part of aging cycling, plus confirmation of the reported 2 Ah rated-capacity basis for this specific cell and its test conditions.",
+      "Explanation of why the raw sequence contains 44 discharge-capacity values below the README's stated 1.4 Ah EOL stopping criterion, including whether the stopping rule was approximate, changed, or applied differently."
+    ],
+    "next_evidence_based_option": "Request the B0005 cell-specific Arbin/NASA experiment schedule and reference-performance-test designation/records from the NASA PCoE dataset curator. Until received, keep SOH training blocked; if a clearly distinct research target is useful, define and name it as capacity relative to rated 2.0 Ah (not SOH), preserve protocol metadata, and validate that estimand separately."
+  },
+  "provenance": {
+    "raw_source_file": "B0005.mat",
+    "cycle_record_source": "Original cycle array in B0005.mat; MATLAB source-cycle index is 1-based and operation labels are retained.",
+    "reconciliation": "All 168 raw discharge capacity values and cycle indices match the corresponding B0005 entries in data/processed/nasa_soh_reference_evidence_audit.json.",
+    "source_document_scope": "README1.txt documents the group protocol and data structure; the available local files do not identify a cell-specific reference-performance operation."
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "source": "EPA FuelEconomy.gov all-model-year vehicle data",
+  "source_url": "https://www.fueleconomy.gov/feg/epadata/vehicles.csv",
+  "acquisition": "User-authorized local inspection; original CSV retained.",
+  "raw_record_count": 50407,
+  "pure_battery_electric_record_count": 1608,
+  "valid_record_count": 1608,
+  "excluded_record_counts": {
+    "not_pure_battery_electric": 48799,
+    "missing_or_invalid_range": 0
+  },
+  "duplicate_source_record_count": 0,
+  "duplicate_checks": {
+    "exact_configuration_duplicate_rows": 0,
+    "repeated_model_input_signature_rows": 282,
+    "cross_identity_input_signature_groups": 9,
+    "cross_identity_input_signature_rows": 18
+  },
+  "vehicle_identity_count": 134,
+  "measurement_quality": {
+    "year": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": 1998.0,
+        "max": 2027.0
+      },
+      "iqr_outlier_count_review_only": 167
+    },
+    "city_e_kwh_100_miles": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": 21.6301,
+        "max": 122.0
+      },
+      "iqr_outlier_count_review_only": 27
+    },
+    "highway_e_kwh_100_miles": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": 23.7854,
+        "max": 120.0
+      },
+      "iqr_outlier_count_review_only": 38
+    },
+    "combined_e_kwh_100_miles": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": 23.141,
+        "max": 121.0
+      },
+      "iqr_outlier_count_review_only": 35
+    },
+    "charge_240_hours": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": 0.0,
+        "max": 19.0
+      },
+      "iqr_outlier_count_review_only": 29
+    },
+    "epa_range_miles": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": 29.0,
+        "max": 520.0
+      },
+      "iqr_outlier_count_review_only": 153
+    },
+    "ev_motor_description": {
+      "missing_count": 1,
+      "outlier_count": null,
+      "note": "Free-text source descriptor; not model input."
+    },
+    "drive": {
+      "missing_count": 8,
+      "unique_value_count": 6
+    },
+    "vehicle_class": {
+      "missing_count": 0,
+      "unique_value_count": 20
+    }
+  },
+  "target": {
+    "column": "epa_range_miles",
+    "units": "miles",
+    "definition": "EPA combined all-electric vehicle range estimate in the official vehicle table; standardized estimate, not observed real-world trip range.",
+    "observed_range": {
+      "min": 29.0,
+      "max": 520.0
+    }
+  },
+  "features": {
+    "numeric": [
+      "year",
+      "cityE",
+      "highwayE",
+      "combE",
+      "charge240"
+    ],
+    "categorical": [
+      "drive",
+      "VClass"
+    ],
+    "units": {
+      "year": "model year",
+      "cityE": "kWh/100 miles",
+      "highwayE": "kWh/100 miles",
+      "combE": "kWh/100 miles",
+      "charge240": "hours"
+    },
+    "preserved_but_excluded_fields": {
+      "ev_motor_description": "Original EPA motor descriptor text; excluded from model features because it is not a consistent numeric channel."
+    }
+  },
+  "identity_split_group": "make|baseModel",
+  "limitations": [
+    "EPA estimate target is not real-world or per-trip range.",
+    "Vehicle record IDs represent configurations/years, not observed individual vehicles.",
+    "The source has no trip, location, ambient weather, or historical weather observations.",
+    "Prediction features omit make/model identity and all range variants to avoid target leakage.",
+    "Use policies/licensing were not specified on the cited download/documentation pages."
+  ]
+}

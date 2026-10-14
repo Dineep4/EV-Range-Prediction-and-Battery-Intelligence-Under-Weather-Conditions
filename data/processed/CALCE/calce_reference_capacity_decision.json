@@ -1,0 +1,134 @@
+{
+  "report_version": 1,
+  "decision": "no_defensible_full_capacity_reference_established",
+  "training_gate": "blocked",
+  "scope": {
+    "reviewed_files": [
+      "data/processed/CALCE/calce_single_cycle_investigation.json",
+      "data/processed/CALCE/calce_export_validation.json",
+      "data/raw/CALCE/SOC_0%-60%_HalfC/Readme.txt"
+    ],
+    "local_records_inventory": "data/raw/CALCE/CALCE_Export/",
+    "raw_files_modified": false,
+    "soh_labels_generated": false,
+    "models_trained": false
+  },
+  "confirmed_facts": {
+    "readme": [
+      "PL03 and PL10 are described as tested under a 0%-60% SOC condition at C/2 and room temperature (25 +/- 2 C).",
+      "The README describes the Operation field as identifying the operation type and cycle count and gives meanings and units for the eight exported measurements.",
+      "Current is positive for charge and negative for discharge; Charge and Discharge are cumulative Ah counters.",
+      "The README notes that 'Missing Data' operation records were not recorded because of a test-system software fault.",
+      "The README does not define 'Single Cycle' as a full-capacity characterization or reference-performance test, does not state a full-charge acceptance rule, and does not define how to select reference capacity."
+    ],
+    "operation_labels_and_available_records": {
+      "csv_file_count": 44,
+      "single_cycle": {
+        "files": 4,
+        "rows": 7808,
+        "cell_assignments": {
+          "PL03": [
+            "PL03_row02_Single_Cycle.csv",
+            "PL03_row18_Single_Cycle.csv"
+          ],
+          "PL10": [
+            "PL10_row02_Single_Cycle.csv",
+            "PL10_row18_Single_Cycle.csv"
+          ]
+        },
+        "label_interpretation": "The label says Single Cycle; it does not document a full-capacity reference test."
+      },
+      "partial_cycle": {
+        "labels": [
+          "50 Partial Cycles",
+          "75 Partial Cycles",
+          "100 Partial Cycles"
+        ],
+        "files": 40,
+        "rows": 5305240,
+        "interpretation": "These are explicitly partial-cycle operations, including the label '100 Partial Cycles'; the number 100 is not documentation of a 100% SOC reference test."
+      },
+      "documented_but_unavailable_operations": {
+        "entries": 4,
+        "operation_label": "50 Partial Cycles (Data Missing)",
+        "outer_rows": [
+          "PL03 row 16",
+          "PL03 row 17",
+          "PL10 row 16",
+          "PL10 row 17"
+        ],
+        "readme_reason": "Test-system software fault; operation data was not recorded."
+      }
+    },
+    "observed_single_cycle_measurements": {
+      "meaning": "The following are values of the exported cumulative Discharge_Ah counter at the end of the candidate discharge interval. They are not approved reference capacities.",
+      "candidate_interval": "Step 6, negative current near -0.75 A; voltage reaches approximately 2.75 V.",
+      "files": [
+        {
+          "file": "PL03_row02_Single_Cycle.csv",
+          "candidate_discharge_counter_ah": 1.38382075319124,
+          "preceding_charge_steps": [
+            2,
+            3,
+            4
+          ],
+          "charge_counter_at_end_of_observed_initial_charge_steps_ah": 0.017344422042953
+        },
+        {
+          "file": "PL03_row18_Single_Cycle.csv",
+          "candidate_discharge_counter_ah": 1.36382552556828,
+          "preceding_charge_steps": [
+            2,
+            3,
+            4
+          ],
+          "charge_counter_at_end_of_observed_initial_charge_steps_ah": 0.008098668876603
+        },
+        {
+          "file": "PL10_row02_Single_Cycle.csv",
+          "candidate_discharge_counter_ah": 1.44331604385062,
+          "preceding_charge_steps": [
+            2,
+            3,
+            4
+          ],
+          "charge_counter_at_end_of_observed_initial_charge_steps_ah": 0.036960135734649
+        },
+        {
+          "file": "PL10_row18_Single_Cycle.csv",
+          "candidate_discharge_counter_ah": 1.39506805645346,
+          "preceding_charge_steps": [
+            2,
+            3,
+            4
+          ],
+          "charge_counter_at_end_of_observed_initial_charge_steps_ah": 0.015960021503269
+        }
+      ],
+      "export_validation_summary": {
+        "missing_or_non_finite_values": 0,
+        "within_file_exact_duplicate_rows": 48,
+        "rows_removed_or_modified": 0
+      }
+    }
+  },
+  "not_established": [
+    "That each Single Cycle export is a reference-performance/full-capacity characterization operation.",
+    "That the brief measured charge steps before Step 6 constitute complete conditioning or full charging. Positive current and voltage near 4.2 V are observed, but a complete CC-CV sequence and charge-termination criterion are not documented; the recorded preceding charge counters are small.",
+    "That approximately 2.75 V is the configured or protocol-defined discharge cutoff. It is an observed endpoint in Step 6, not a documented cutoff rule in the README.",
+    "That the final cumulative Discharge_Ah counter is an accepted capacity measurement for SOH. Counter reset semantics, test acceptance rules, calibration details, and a reference-capacity selection procedure are not documented in the reviewed material.",
+    "That either of the two Single Cycle measurements per cell can serve as a stable baseline. Their observed discharge counters differ, and the reason for that difference is not established."
+  ],
+  "missing_evidence": [
+    "An authoritative CALCE protocol or Arbin schedule mapped to the four Single Cycle source-operation rows, specifying the intended operation purpose and whether it is reference-performance characterization.",
+    "Per-cell charge/conditioning records immediately preceding each proposed capacity test, including CC-CV setpoints, voltage limit, CV termination current or time, rest period, and evidence that charge completion criteria were met.",
+    "The documented discharge rate, lower voltage cutoff, termination behavior, and any rest or stabilization steps for the capacity test.",
+    "CALCE's definition of the capacity result for this protocol, including whether the cumulative Ah counter resets at the test boundary and which cycle/step interval is the accepted measured capacity.",
+    "A source-backed rule for choosing each cell's reference capacity (for example, a designated initial reference-performance test or protocol-defined baseline), rather than choosing a denominator from observed maxima."
+  ],
+  "recommendation": {
+    "next_verifiable_source": "Obtain from CALCE the original protocol/test schedule and experiment records for PL03 and PL10 corresponding to source operation rows 2 and 18, including the Arbin step definitions and complete preceding charge logs. Request explicit confirmation that these operations are reference-capacity tests and the prescribed capacity extraction/reference-selection rule.",
+    "if_original_records_are_unavailable": "Keep historical CALCE SOH labeling blocked. A new controlled reference-performance experiment on the same cells could establish prospective capacity measurements only if cell identity and protocol continuity are documented; it cannot retroactively prove that the historical Single Cycle exports were valid reference tests.",
+    "decision_until_evidence_is_obtained": "Do not assign these candidate counters as reference capacity, do not generate CALCE SOH labels, and do not train a CALCE SOH model."
+  }
+}

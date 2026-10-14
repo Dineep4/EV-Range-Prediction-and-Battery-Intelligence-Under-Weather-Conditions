@@ -1,0 +1,998 @@
+{
+  "source": "NASA PCoE Li-ion Battery Aging Dataset",
+  "status": "audit_complete_target_unresolved",
+  "target_status": "blocked_not_validated",
+  "processed_data_modified": false,
+  "current_target": {
+    "column": "soh_percent",
+    "units": "%",
+    "definition": "100 * discharge Capacity / median of the first 10 valid positive discharge capacities per battery",
+    "validation_status": "provisional_not_scientifically_validated",
+    "important_note": "The ratio is reproduced for audit only. It is not approved as an SOH label or training target."
+  },
+  "source_measurement": {
+    "raw_mat_file_count": 22,
+    "raw_discharge_cycle_count": 2043,
+    "capacity_field_units": "Ah (as stated in NASA README files)",
+    "documented_capacity_field_description": "Battery capacity for discharge till 2.7 V",
+    "protocol_evidence": [
+      {
+        "readme": "README1.txt",
+        "batteries": [
+          "B0005",
+          "B0006",
+          "B0007",
+          "B0018"
+        ],
+        "ambient_temperature_c": 24,
+        "discharge_protocol": "2 A constant-current discharge",
+        "cutoff_voltage_by_battery_v": {
+          "B0005": 2.7,
+          "B0006": 2.5,
+          "B0007": 2.2,
+          "B0018": 2.5
+        },
+        "rated_capacity_ah": 2.0,
+        "documented_eol_capacity_ah": 1.4
+      },
+      {
+        "readme": "README_25_26_27_28.txt",
+        "batteries": [
+          "B0025",
+          "B0026",
+          "B0027",
+          "B0028"
+        ],
+        "ambient_temperature_c": 24,
+        "discharge_protocol": "0.05 Hz square-wave load, 4 A amplitude, 50% duty",
+        "cutoff_voltage_by_battery_v": {
+          "B0025": 2.0,
+          "B0026": 2.2,
+          "B0027": 2.5,
+          "B0028": 2.7
+        }
+      },
+      {
+        "readme": "README_29_30_31_32.txt",
+        "batteries": [
+          "B0029",
+          "B0030",
+          "B0031",
+          "B0032"
+        ],
+        "ambient_temperature_c": 43,
+        "discharge_protocol": "4 A discharge",
+        "cutoff_voltage_by_battery_v": {
+          "B0029": 2.0,
+          "B0030": 2.2,
+          "B0031": 2.5,
+          "B0032": 2.7
+        }
+      },
+      {
+        "readme": "README_33_34_36.txt",
+        "batteries": [
+          "B0033",
+          "B0034",
+          "B0036"
+        ],
+        "ambient_temperature_c": 24,
+        "discharge_protocol": "4 A for B0033/B0034; 2 A for B0036",
+        "cutoff_voltage_by_battery_v": {
+          "B0033": 2.0,
+          "B0034": 2.2,
+          "B0036": 2.7
+        },
+        "documented_eol_capacity_ah": 1.6
+      },
+      {
+        "readme": "README_38_39_40.txt",
+        "batteries": [
+          "B0038",
+          "B0039",
+          "B0040"
+        ],
+        "ambient_temperature_c": [
+          24,
+          44
+        ],
+        "discharge_protocol": "Multiple discharge loads: 1 A, 2 A, and 4 A",
+        "cutoff_voltage_by_battery_v": {
+          "B0038": 2.2,
+          "B0039": 2.5,
+          "B0040": 2.7
+        },
+        "documented_eol_capacity_ah": 1.6
+      },
+      {
+        "readme": "README_41_42_43_44.txt",
+        "batteries": [
+          "B0041",
+          "B0042",
+          "B0043",
+          "B0044"
+        ],
+        "ambient_temperature_c": 4,
+        "discharge_protocol": "Multiple discharge load levels: 1 A and 4 A",
+        "cutoff_voltage_by_battery_v": {
+          "B0041": 2.0,
+          "B0042": 2.2,
+          "B0043": 2.5,
+          "B0044": 2.7
+        },
+        "documented_eol_capacity_ah": 1.4,
+        "documented_unresolved_issue": "The README says several discharge runs have very low capacity and that the reasons have not been fully analyzed."
+      }
+    ],
+    "capacity_field_cutoff_note": "The common field description says 2.7 V, but individual battery protocol descriptions specify different cut-offs; the available files do not establish a harmonized capacity measurement across those protocols."
+  },
+  "current_processed_rows": {
+    "retained_positive_capacity_rows": 2040,
+    "retained_flagged_positive_capacity_rows": 210,
+    "flag_counts": {
+      "below_0.5_ah_retained": 202,
+      "above_2.0_ah_retained": 8
+    },
+    "excluded_nonpositive_or_invalid_rows": 3,
+    "exclusions": [
+      {
+        "battery_id": "B0042",
+        "source_dataset": "NASA PCoE Li-ion Battery Aging Dataset",
+        "source_file": "B0042.mat",
+        "source_cycle_index": 15,
+        "capacity_ah": 0.0,
+        "reason": "non_positive_capacity",
+        "voltage_min_v": 3.3813406435619986,
+        "voltage_last_v": 3.3813406435619986,
+        "duration_s": 2646.625,
+        "voltage_sample_count": 274,
+        "current_sample_count": 274,
+        "time_sample_count": 274,
+        "absolute_current_integral_ah_diagnostic": 1.4712135921029772
+      },
+      {
+        "battery_id": "B0043",
+        "source_dataset": "NASA PCoE Li-ion Battery Aging Dataset",
+        "source_file": "B0043.mat",
+        "source_cycle_index": 15,
+        "capacity_ah": 0.0,
+        "reason": "non_positive_capacity",
+        "voltage_min_v": 3.3579241790202077,
+        "voltage_last_v": 3.3579241790202077,
+        "duration_s": 2646.625,
+        "voltage_sample_count": 274,
+        "current_sample_count": 274,
+        "time_sample_count": 274,
+        "absolute_current_integral_ah_diagnostic": 1.453824763471636
+      },
+      {
+        "battery_id": "B0044",
+        "source_dataset": "NASA PCoE Li-ion Battery Aging Dataset",
+        "source_file": "B0044.mat",
+        "source_cycle_index": 15,
+        "capacity_ah": 0.0,
+        "reason": "non_positive_capacity",
+        "voltage_min_v": 3.2896584926178556,
+        "voltage_last_v": 3.2896584926178556,
+        "duration_s": 2646.625,
+        "voltage_sample_count": 274,
+        "current_sample_count": 274,
+        "time_sample_count": 274,
+        "absolute_current_integral_ah_diagnostic": 1.4574247466990697
+      }
+    ],
+    "unresolved_positive_flagged_examples": [
+      {
+        "battery_id": "B0006",
+        "source_file": "B0006.mat",
+        "source_cycle_index": 2,
+        "capacity_ah": 2.035337591005598,
+        "flags": [
+          "above_2.0_ah_review_only"
+        ],
+        "voltage_min_v": 2.4757677568281857,
+        "voltage_last_v": 2.4757677568281857,
+        "duration_s": 3690.234,
+        "voltage_sample_count": 197,
+        "current_sample_count": 197,
+        "time_sample_count": 197,
+        "absolute_current_integral_ah_diagnostic": 2.0467027976309904
+      },
+      {
+        "battery_id": "B0006",
+        "source_file": "B0006.mat",
+        "source_cycle_index": 4,
+        "capacity_ah": 2.0251402460314116,
+        "flags": [
+          "above_2.0_ah_review_only"
+        ],
+        "voltage_min_v": 2.35152551190002,
+        "voltage_last_v": 2.35152551190002,
+        "duration_s": 3672.344,
+        "voltage_sample_count": 196,
+        "current_sample_count": 196,
+        "time_sample_count": 196,
+        "absolute_current_integral_ah_diagnostic": 2.036565727155805
+      },
+      {
+        "battery_id": "B0006",
+        "source_file": "B0006.mat",
+        "source_cycle_index": 6,
+        "capacity_ah": 2.013326371345464,
+        "flags": [
+          "above_2.0_ah_review_only"
+        ],
+        "voltage_min_v": 2.4404797151065436,
+        "voltage_last_v": 2.4404797151065436,
+        "duration_s": 3651.641,
+        "voltage_sample_count": 195,
+        "current_sample_count": 195,
+        "time_sample_count": 195,
+        "absolute_current_integral_ah_diagnostic": 2.0247293324555025
+      },
+      {
+        "battery_id": "B0006",
+        "source_file": "B0006.mat",
+        "source_cycle_index": 8,
+        "capacity_ah": 2.0132846655407413,
+        "flags": [
+          "above_2.0_ah_review_only"
+        ],
+        "voltage_min_v": 2.4791558539003917,
+        "voltage_last_v": 2.4791558539003917,
+        "duration_s": 3631.563,
+        "voltage_sample_count": 194,
+        "current_sample_count": 194,
+        "time_sample_count": 194,
+        "absolute_current_integral_ah_diagnostic": 2.0132866329706425
+      },
+      {
+        "battery_id": "B0006",
+        "source_file": "B0006.mat",
+        "source_cycle_index": 10,
+        "capacity_ah": 2.000528337624771,
+        "flags": [
+          "above_2.0_ah_review_only"
+        ],
+        "voltage_min_v": 2.280187848173442,
+        "voltage_last_v": 2.280187848173442,
+        "duration_s": 3629.172,
+        "voltage_sample_count": 194,
+        "current_sample_count": 194,
+        "time_sample_count": 194,
+        "absolute_current_integral_ah_diagnostic": 2.01193411208748
+      },
+      {
+        "battery_id": "B0006",
+        "source_file": "B0006.mat",
+        "source_cycle_index": 12,
+        "capacity_ah": 2.0138990759931645,
+        "flags": [
+          "above_2.0_ah_review_only"
+        ],
+        "voltage_min_v": 2.4392842568466446,
+        "voltage_last_v": 2.4392842568466446,
+        "duration_s": 3652.281,
+        "voltage_sample_count": 195,
+        "current_sample_count": 195,
+        "time_sample_count": 195,
+        "absolute_current_integral_ah_diagnostic": 2.0252745663966842
+      },
+      {
+        "battery_id": "B0006",
+        "source_file": "B0006.mat",
+        "source_cycle_index": 14,
+        "capacity_ah": 2.013101105626967,
+        "flags": [
+          "above_2.0_ah_review_only"
+        ],
+        "voltage_min_v": 2.2812068449406446,
+        "voltage_last_v": 2.2812068449406446,
+        "duration_s": 3650.828,
+        "voltage_sample_count": 195,
+        "current_sample_count": 195,
+        "time_sample_count": 195,
+        "absolute_current_integral_ah_diagnostic": 2.0244845012390646
+      },
+      {
+        "battery_id": "B0033",
+        "source_file": "B0033.mat",
+        "source_cycle_index": 1,
+        "capacity_ah": 0.06842572240601812,
+        "flags": [
+          "below_0.5_ah_review_only"
+        ],
+        "voltage_min_v": 1.9848598462488805,
+        "voltage_last_v": 3.4809143467131602,
+        "duration_s": 1819.406,
+        "voltage_sample_count": 190,
+        "current_sample_count": 190,
+        "time_sample_count": 190,
+        "absolute_current_integral_ah_diagnostic": 0.19974870136827397
+      },
+      {
+        "battery_id": "B0033",
+        "source_file": "B0033.mat",
+        "source_cycle_index": 343,
+        "capacity_ah": 0.29866180371583506,
+        "flags": [
+          "below_0.5_ah_review_only"
+        ],
+        "voltage_min_v": 1.5585045696383768,
+        "voltage_last_v": 4.013680020801453,
+        "duration_s": 2986.718,
+        "voltage_sample_count": 206,
+        "current_sample_count": 206,
+        "time_sample_count": 206,
+        "absolute_current_integral_ah_diagnostic": 0.3383899375487037
+      },
+      {
+        "battery_id": "B0033",
+        "source_file": "B0033.mat",
+        "source_cycle_index": 347,
+        "capacity_ah": 0.2344867974702557,
+        "flags": [
+          "below_0.5_ah_review_only"
+        ],
+        "voltage_min_v": 1.203791745361808,
+        "voltage_last_v": 4.064571052096059,
+        "duration_s": 3006.203,
+        "voltage_sample_count": 207,
+        "current_sample_count": 207,
+        "time_sample_count": 207,
+        "absolute_current_integral_ah_diagnostic": 0.27134742817785507
+      },
+      {
+        "battery_id": "B0033",
+        "source_file": "B0033.mat",
+        "source_cycle_index": 349,
+        "capacity_ah": 0.20256330380725823,
+        "flags": [
+          "below_0.5_ah_review_only"
+        ],
+        "voltage_min_v": 1.5484910888494308,
+        "voltage_last_v": 4.076203147892305,
+        "duration_s": 3011.609,
+        "voltage_sample_count": 207,
+        "current_sample_count": 207,
+        "time_sample_count": 207,
+        "absolute_current_integral_ah_diagnostic": 0.226254413751293
+      },
+      {
+        "battery_id": "B0033",
+        "source_file": "B0033.mat",
+        "source_cycle_index": 351,
+        "capacity_ah": 0.23531995654070248,
+        "flags": [
+          "below_0.5_ah_review_only"
+        ],
+        "voltage_min_v": 1.9233358352697387,
+        "voltage_last_v": 4.0686293153158966,
+        "duration_s": 2985.953,
+        "voltage_sample_count": 205,
+        "current_sample_count": 205,
+        "time_sample_count": 205,
+        "absolute_current_integral_ah_diagnostic": 0.261975919861038
+      },
+      {
+        "battery_id": "B0033",
+        "source_file": "B0033.mat",
+        "source_cycle_index": 353,
+        "capacity_ah": 0.23550427837482876,
+        "flags": [
+          "below_0.5_ah_review_only"
+        ],
+        "voltage_min_v": 1.477441018016571,
+        "voltage_last_v": 4.064603817161488,
+        "duration_s": 2976.3129999999946,
+        "voltage_sample_count": 204,
+        "current_sample_count": 204,
+        "time_sample_count": 204,
+        "absolute_current_integral_ah_diagnostic": 0.2745465610044295
+      },
+      {
+        "battery_id": "B0033",
+        "source_file": "B0033.mat",
+        "source_cycle_index": 355,
+        "capacity_ah": 0.4304242256752923,
+        "flags": [
+          "below_0.5_ah_review_only"
+        ],
+        "voltage_min_v": 1.7051348869638063,
+        "voltage_last_v": 3.9370945938948676,
+        "duration_s": 2964.75,
+        "voltage_sample_count": 203,
+        "current_sample_count": 203,
+        "time_sample_count": 203,
+        "absolute_current_integral_ah_diagnostic": 0.5199235818304594
+      },
+      {
+        "battery_id": "B0033",
+        "source_file": "B0033.mat",
+        "source_cycle_index": 359,
+        "capacity_ah": 0.46436333202696434,
+        "flags": [
+          "below_0.5_ah_review_only"
+        ],
+        "voltage_min_v": 0.9861339962587278,
+        "voltage_last_v": 3.930750719208295,
+        "duration_s": 2969.953,
+        "voltage_sample_count": 203,
+        "current_sample_count": 203,
+        "time_sample_count": 203,
+        "absolute_current_integral_ah_diagnostic": 0.5320506217246367
+      },
+      {
+        "battery_id": "B0033",
+        "source_file": "B0033.mat",
+        "source_cycle_index": 361,
+        "capacity_ah": 0.3994839380247729,
+        "flags": [
+          "below_0.5_ah_review_only"
+        ],
+        "voltage_min_v": 1.3263821081867295,
+        "voltage_last_v": 3.9600810855726563,
+        "duration_s": 2988.453,
+        "voltage_sample_count": 204,
+        "current_sample_count": 204,
+        "time_sample_count": 204,
+        "absolute_current_integral_ah_diagnostic": 0.45367807360030477
+      },
+      {
+        "battery_id": "B0036",
+        "source_file": "B0036.mat",
+        "source_cycle_index": 279,
+        "capacity_ah": 2.4440624320786557,
+        "flags": [
+          "above_2.0_ah_review_only"
+        ],
+        "voltage_min_v": 2.691307184686052,
+        "voltage_last_v": 2.691307184686052,
+        "duration_s": 4424.203,
+        "voltage_sample_count": 320,
+        "current_sample_count": 320,
+        "time_sample_count": 320,
+        "absolute_current_integral_ah_diagnostic": 2.4440624320786553
+      },
+      {
+        "battery_id": "B0039",
+        "source_file": "B0039.mat",
+        "source_cycle_index": 1,
+        "capacity_ah": 0.11903831859341765,
+        "flags": [
+          "below_0.5_ah_review_only"
+        ],
+        "voltage_min_v": 2.4897962179516666,
+        "voltage_last_v": 3.859776699654301,
+        "duration_s": 982.938,
+        "voltage_sample_count": 104,
+        "current_sample_count": 104,
+        "time_sample_count": 104,
+        "absolute_current_integral_ah_diagnostic": 0.465743786499136
+      },
+      {
+        "battery_id": "B0039",
+        "source_file": "B0039.mat",
+        "source_cycle_index": 5,
+        "capacity_ah": 0.4729861500927512,
+        "flags": [
+          "below_0.5_ah_review_only"
+        ],
+        "voltage_min_v": 2.4756646285889476,
+        "voltage_last_v": 3.9180747536229807,
+        "duration_s": 1489.953,
+        "voltage_sample_count": 156,
+        "current_sample_count": 156,
+        "time_sample_count": 156,
+        "absolute_current_integral_ah_diagnostic": 0.5620765965688381
+      },
+      {
+        "battery_id": "B0039",
+        "source_file": "B0039.mat",
+        "source_cycle_index": 7,
+        "capacity_ah": 0.16280793829202067,
+        "flags": [
+          "below_0.5_ah_review_only"
+        ],
+        "voltage_min_v": 2.497942856856816,
+        "voltage_last_v": 3.91622923424304,
+        "duration_s": 1479.703,
+        "voltage_sample_count": 154,
+        "current_sample_count": 154,
+        "time_sample_count": 154,
+        "absolute_current_integral_ah_diagnostic": 0.5663444822567717
+      }
+    ],
+    "all_flagged_positive_rows_are_preserved_in_csv": true
+  },
+  "current_target_distribution": {
+    "min_percent": 3.378875675170841,
+    "max_percent": 2179.8236981997507,
+    "above_100_percent_count": 450,
+    "above_120_percent_count": 189,
+    "below_50_percent_count": 149,
+    "maximum_label_provenance": {
+      "battery_id": "B0041",
+      "source_file": "B0041.mat",
+      "source_cycle_index": 104,
+      "capacity_ah": 1.2156494086360898,
+      "provisional_reference_capacity_ah": 0.0557682444520654,
+      "soh_percent": 2179.8236981997507
+    }
+  },
+  "per_battery_capacity_audit": [
+    {
+      "battery_id": "B0005",
+      "retained_positive_capacity_count": 168,
+      "ambient_temperature_c_values": [
+        24.0
+      ],
+      "capacity_range_ah": {
+        "min": 1.2874525221379407,
+        "median": 1.5570854602045165,
+        "max": 1.8564874208181572
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.8352043352523866,
+      "current_provisional_soh_range_percent": {
+        "min": 70.15308853664426,
+        "max": 101.15971203625368
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0006",
+      "retained_positive_capacity_count": 168,
+      "ambient_temperature_c_values": [
+        24.0
+      ],
+      "capacity_range_ah": {
+        "min": 1.15381833159625,
+        "median": 1.4853716884953956,
+        "max": 2.035337591005598
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 7,
+      "current_provisional_first_10_median_ah": 2.0131928855838543,
+      "current_provisional_soh_range_percent": {
+        "min": 57.31285560656183,
+        "max": 101.09997932042768
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0007",
+      "retained_positive_capacity_count": 168,
+      "ambient_temperature_c_values": [
+        24.0
+      ],
+      "capacity_range_ah": {
+        "min": 1.4004552399066514,
+        "median": 1.6161254158190665,
+        "max": 1.89105229539079
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.8806498496939987,
+      "current_provisional_soh_range_percent": {
+        "min": 74.46655953177675,
+        "max": 100.55313038195196
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0018",
+      "retained_positive_capacity_count": 132,
+      "ambient_temperature_c_values": [
+        24.0
+      ],
+      "capacity_range_ah": {
+        "min": 1.341051440640485,
+        "median": 1.531892270982664,
+        "max": 1.8550045207910817
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.829601244550422,
+      "current_provisional_soh_range_percent": {
+        "min": 73.29747094537062,
+        "max": 101.38845971581648
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0025",
+      "retained_positive_capacity_count": 28,
+      "ambient_temperature_c_values": [
+        24.0
+      ],
+      "capacity_range_ah": {
+        "min": 1.7677890780323615,
+        "median": 1.8150561572141846,
+        "max": 1.8489837601535537
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.8416233674633744,
+      "current_provisional_soh_range_percent": {
+        "min": 95.99080405171492,
+        "max": 100.3996687281568
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0026",
+      "retained_positive_capacity_count": 28,
+      "ambient_temperature_c_values": [
+        24.0
+      ],
+      "capacity_range_ah": {
+        "min": 1.3863373424430123,
+        "median": 1.797638816827044,
+        "max": 1.8165277958816064
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.8133929239715947,
+      "current_provisional_soh_range_percent": {
+        "min": 76.449914638838,
+        "max": 100.17287328458004
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0027",
+      "retained_positive_capacity_count": 28,
+      "ambient_temperature_c_values": [
+        24.0
+      ],
+      "capacity_range_ah": {
+        "min": 1.7700926253324452,
+        "median": 1.8089785891075554,
+        "max": 1.8233077742149364
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.8143313548953965,
+      "current_provisional_soh_range_percent": {
+        "min": 97.56170616554758,
+        "max": 100.4947508235097
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0028",
+      "retained_positive_capacity_count": 28,
+      "ambient_temperature_c_values": [
+        24.0
+      ],
+      "capacity_range_ah": {
+        "min": 1.7172335652295243,
+        "median": 1.774432443900551,
+        "max": 1.804783321452588
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.7919833966907817,
+      "current_provisional_soh_range_percent": {
+        "min": 95.82865379225632,
+        "max": 100.71428813377644
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0029",
+      "retained_positive_capacity_count": 40,
+      "ambient_temperature_c_values": [
+        43.0
+      ],
+      "capacity_range_ah": {
+        "min": 1.612079811711934,
+        "median": 1.7268242563384928,
+        "max": 1.844701206961174
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.8138155646158542,
+      "current_provisional_soh_range_percent": {
+        "min": 88.87782435880432,
+        "max": 101.7027994989039
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0030",
+      "retained_positive_capacity_count": 40,
+      "ambient_temperature_c_values": [
+        43.0
+      ],
+      "capacity_range_ah": {
+        "min": 1.562780404428482,
+        "median": 1.6590697729506272,
+        "max": 1.7815548749509116
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.7436367859711617,
+      "current_provisional_soh_range_percent": {
+        "min": 89.62763443638022,
+        "max": 102.17465525416928
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0031",
+      "retained_positive_capacity_count": 40,
+      "ambient_temperature_c_values": [
+        43.0
+      ],
+      "capacity_range_ah": {
+        "min": 1.6666751942525773,
+        "median": 1.7442156550040404,
+        "max": 1.8328583629543171
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.80173689420559,
+      "current_provisional_soh_range_percent": {
+        "min": 92.50380561183084,
+        "max": 101.72730373945356
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0032",
+      "retained_positive_capacity_count": 40,
+      "ambient_temperature_c_values": [
+        43.0
+      ],
+      "capacity_range_ah": {
+        "min": 1.6358000873538243,
+        "median": 1.75303336954823,
+        "max": 1.8940319526948568
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.843599122377571,
+      "current_provisional_soh_range_percent": {
+        "min": 88.72862150445368,
+        "max": 102.73556380588026
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0033",
+      "retained_positive_capacity_count": 197,
+      "ambient_temperature_c_values": [
+        24.0
+      ],
+      "capacity_range_ah": {
+        "min": 0.0684257224060181,
+        "median": 1.4412820083364295,
+        "max": 1.8851401699720665
+      },
+      "positive_capacity_below_0_5_ah_count": 9,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.2956937221388498,
+      "current_provisional_soh_range_percent": {
+        "min": 5.281010568845331,
+        "max": 145.49273009212357
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0034",
+      "retained_positive_capacity_count": 197,
+      "ambient_temperature_c_values": [
+        24.0
+      ],
+      "capacity_range_ah": {
+        "min": 0.7459302957645664,
+        "median": 1.3577165116893766,
+        "max": 1.8203060058691087
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.4861601408154854,
+      "current_provisional_soh_range_percent": {
+        "min": 50.19178453778606,
+        "max": 122.48383978797004
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0036",
+      "retained_positive_capacity_count": 197,
+      "ambient_temperature_c_values": [
+        24.0
+      ],
+      "capacity_range_ah": {
+        "min": 1.001982588175331,
+        "median": 1.6944038437227715,
+        "max": 2.444062432078656
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 1,
+      "current_provisional_first_10_median_ah": 1.7911551264778605,
+      "current_provisional_soh_range_percent": {
+        "min": 55.940581212842034,
+        "max": 136.45174535410993
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0038",
+      "retained_positive_capacity_count": 47,
+      "ambient_temperature_c_values": [
+        24.0,
+        44.0
+      ],
+      "capacity_range_ah": {
+        "min": 0.8980573709676724,
+        "median": 1.7769523773001608,
+        "max": 1.7864411650415677
+      },
+      "positive_capacity_below_0_5_ah_count": 0,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.0489900535457757,
+      "current_provisional_soh_range_percent": {
+        "min": 85.61161928390803,
+        "max": 170.3010585279693
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0039",
+      "retained_positive_capacity_count": 47,
+      "ambient_temperature_c_values": [
+        24.0,
+        44.0
+      ],
+      "capacity_range_ah": {
+        "min": 0.1190383185934176,
+        "median": 1.7477359172183355,
+        "max": 1.7715725869786123
+      },
+      "positive_capacity_below_0_5_ah_count": 12,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 0.4647612622718929,
+      "current_provisional_soh_range_percent": {
+        "min": 25.61278838333525,
+        "max": 381.1790548804848
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0040",
+      "retained_positive_capacity_count": 47,
+      "ambient_temperature_c_values": [
+        24.0,
+        44.0
+      ],
+      "capacity_range_ah": {
+        "min": 0.425812451177779,
+        "median": 1.7262424141835069,
+        "max": 1.7341296392350067
+      },
+      "positive_capacity_below_0_5_ah_count": 1,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 0.7680703466075385,
+      "current_provisional_soh_range_percent": {
+        "min": 55.43925150326845,
+        "max": 225.77744953888924
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0041",
+      "retained_positive_capacity_count": 67,
+      "ambient_temperature_c_values": [
+        4.0
+      ],
+      "capacity_range_ah": {
+        "min": 0.0440922918408019,
+        "median": 0.0482903205557941,
+        "max": 1.2156494086360898
+      },
+      "positive_capacity_below_0_5_ah_count": 42,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 0.05576824445206535,
+      "current_provisional_soh_range_percent": {
+        "min": 79.06343883336804,
+        "max": 2179.8236981997507
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0042",
+      "retained_positive_capacity_count": 111,
+      "ambient_temperature_c_values": [
+        4.0,
+        22.0
+      ],
+      "capacity_range_ah": {
+        "min": 0.0621692314155252,
+        "median": 1.414172188151386,
+        "max": 1.7314706281853145
+      },
+      "positive_capacity_below_0_5_ah_count": 46,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.714507159811783,
+      "current_provisional_soh_range_percent": {
+        "min": 3.626070095988992,
+        "max": 100.98940784682368
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0043",
+      "retained_positive_capacity_count": 111,
+      "ambient_temperature_c_values": [
+        4.0,
+        22.0
+      ],
+      "capacity_range_ah": {
+        "min": 0.0565443893216957,
+        "median": 1.384130256052478,
+        "max": 1.713782642126885
+      },
+      "positive_capacity_below_0_5_ah_count": 46,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.6653053536044884,
+      "current_provisional_soh_range_percent": {
+        "min": 3.3954367107093963,
+        "max": 102.91101499298428
+      },
+      "reference_is_validated": false
+    },
+    {
+      "battery_id": "B0044",
+      "retained_positive_capacity_count": 111,
+      "ambient_temperature_c_values": [
+        4.0,
+        22.0
+      ],
+      "capacity_range_ah": {
+        "min": 0.0551169133397871,
+        "median": 1.3334258933205057,
+        "max": 1.686525555152074
+      },
+      "positive_capacity_below_0_5_ah_count": 46,
+      "capacity_above_2_0_ah_count": 0,
+      "current_provisional_first_10_median_ah": 1.6312205194409937,
+      "current_provisional_soh_range_percent": {
+        "min": 3.378875675170841,
+        "max": 103.39040828949555
+      },
+      "reference_is_validated": false
+    }
+  ],
+  "target_leakage_audit": {
+    "capacity_ah": "Direct source measurement used to calculate the target; must never be an input when predicting this SOH label.",
+    "reference_capacity_ah": "Target-defining denominator; must never be an input.",
+    "soh_percent": "Target; must never be an input.",
+    "current_training_features": [
+      "cycle_index",
+      "voltage_mean",
+      "current_mean",
+      "temperature_mean"
+    ],
+    "feature_timing_caveat": "Voltage/current/temperature aggregates come from the same discharge operation as the capacity target. They are not direct target columns, but could encode the same test result; a prediction-time contract and leakage analysis are required before training.",
+    "training_authorized": false
+  },
+  "training_blockers": [
+    "NASA documentation describes different discharge cut-off voltages, load profiles, and ambient temperatures across battery groups; capacity measurements are not protocol-equivalent.",
+    "The README files describe the MATLAB Capacity field as Ah to 2.7 V, while their experiment descriptions specify cut-offs from 2.0 V to 2.7 V for individual batteries.",
+    "The README for B0041-B0044 explicitly says very low discharge capacities occur and their reasons have not been fully analyzed.",
+    "The current first-10-positive-cycle reference is affected by unresolved low-capacity observations and has no documented healthy reference-performance measurement protocol.",
+    "Current aggregate features are measured during the same discharge operation as capacity; a valid prediction-time feature contract has not been established.",
+    "The dataset manifest does not explicitly authorize training against a validated SOH target."
+  ],
+  "next_evidence_needed": [
+    "Authoritative, battery-specific reference-performance capacity measurements taken under a documented common protocol.",
+    "Clarification of why very low capacities occur in B0041-B0044 and whether affected runs are partial tests, protocol effects, or measurement/extraction anomalies.",
+    "Resolution of the conflict between each README's 2.7 V Capacity field description and battery-specific cut-off protocols.",
+    "A prediction-time feature definition that excludes capacity and other unavailable or same-measurement target proxies."
+  ]
+}

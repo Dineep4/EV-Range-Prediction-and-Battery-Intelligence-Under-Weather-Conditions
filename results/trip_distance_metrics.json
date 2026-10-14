@@ -1,0 +1,95 @@
+{
+  "task": "VED Initial-Window EV Trip Distance Prediction",
+  "target": "total_trip_distance_km",
+  "target_units": "km",
+  "target_definition": "Total trip distance in kilometres, derived via trapezoidal integration of speed over the completed trip for pure-EV trips with >= 95% speed-distance coverage. Estimated at t = 30 seconds using the initial 30-second telemetry window.",
+  "observation_window_s": 30.0,
+  "split": {
+    "method": "Vehicle-grouped holdout: Vehicle 10 test (12 trips), Vehicle 541 & partial 455 val (8 trips), Vehicle 455 train (31 trips)",
+    "seed": 42,
+    "train_trips": 31,
+    "validation_trips": 8,
+    "test_trips": 12,
+    "test_vehicle_ids": [
+      "10"
+    ]
+  },
+  "experiments": [
+    {
+      "task": "trip_distance_km",
+      "rmse": 1.4986555687129866,
+      "mae": 1.2909400800720003,
+      "r2": -0.26638632587591826,
+      "mape": 131.8976527069511,
+      "mape_valid_count": 12,
+      "prediction_count": 12,
+      "model": "Training-Mean Baseline",
+      "status": "EVALUATED",
+      "description": "Predicts training set mean distance (2.601 km)",
+      "train_mean_km": 2.600797017259144,
+      "seed": 42
+    },
+    {
+      "task": "trip_distance_km",
+      "rmse": 1.488421602768107,
+      "mae": 1.2845090767385,
+      "r2": -0.2491496720641584,
+      "mape": 130.5569892658157,
+      "mape_valid_count": 12,
+      "prediction_count": 12,
+      "model": "XGBoost",
+      "status": "EVALUATED",
+      "best_iteration": 0,
+      "feature_count": 15,
+      "seed": 42
+    },
+    {
+      "task": "trip_distance_km",
+      "rmse": 1.5411395529206096,
+      "mae": 1.3696499298719462,
+      "r2": -0.3392032116838659,
+      "mape": 134.86930192940204,
+      "mape_valid_count": 12,
+      "prediction_count": 12,
+      "model": "LSTM",
+      "status": "EVALUATED",
+      "best_epoch": 15,
+      "best_val_mse": 4.990044116973877,
+      "seed": 42
+    },
+    {
+      "task": "trip_distance_km",
+      "rmse": 1.584484011745955,
+      "mae": 0.9051281391666,
+      "r2": -0.41559256022644164,
+      "mape": 45.59900342453623,
+      "mape_valid_count": 12,
+      "prediction_count": 12,
+      "model": "GRU",
+      "status": "EVALUATED",
+      "best_epoch": 16,
+      "best_val_mse": 8.22994327545166,
+      "seed": 42
+    },
+    {
+      "task": "trip_distance_km",
+      "rmse": 1.5716531101440714,
+      "mae": 1.3919461598702167,
+      "r2": -0.39275889724405566,
+      "mape": 141.82735106832337,
+      "mape_valid_count": 12,
+      "prediction_count": 12,
+      "model": "Hybrid CNN-LSTM",
+      "status": "EVALUATED",
+      "best_epoch": 11,
+      "best_val_mse": 5.049173831939697,
+      "seed": 42
+    }
+  ],
+  "limitations": [
+    "Dataset includes only 3 pure-EV vehicles, all 2013 Nissan Leafs.",
+    "Vehicle 10 is the only completely unseen vehicle identity in the held-out test split (12 trips).",
+    "Initial 30-second window captures early driving style and speed profile, but cannot anticipate arbitrary route changes or unexpected trip endpoints.",
+    "Results are exploratory and should not be presented as a generalized commercial range prediction model."
+  ]
+}

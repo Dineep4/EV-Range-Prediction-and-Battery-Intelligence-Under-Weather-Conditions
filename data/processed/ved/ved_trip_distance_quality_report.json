@@ -1,0 +1,505 @@
+{
+  "source": "VED pure-EV telemetry",
+  "eligible_trips_count": 51,
+  "observation_window_duration_s": 30.0,
+  "sampling_rate_hz": 1.0,
+  "sequence_timesteps": 30,
+  "features": {
+    "sequential": [
+      "speed_kmh",
+      "battery_current_a",
+      "battery_voltage_v",
+      "power_kw",
+      "soc_percent",
+      "outside_air_temperature_c",
+      "cumulative_window_distance_km"
+    ],
+    "tabular": [
+      "window_duration_s",
+      "window_distance_km",
+      "speed_mean",
+      "speed_max",
+      "speed_min",
+      "speed_std",
+      "power_mean",
+      "power_max",
+      "power_min",
+      "current_mean",
+      "voltage_mean",
+      "soc_start",
+      "soc_current",
+      "soc_delta",
+      "temperature_mean"
+    ]
+  },
+  "target": {
+    "name": "total_trip_distance_km",
+    "units": "kilometres",
+    "derivation": "Trapezoidal integration of speed over valid intervals for full completed trip",
+    "mean": 2.4751666229035063,
+    "std": 2.0200726906226403,
+    "min": 0.3823183261487197,
+    "max": 12.267532640721075
+  },
+  "trip_quality_details": [
+    {
+      "trip_key": "10_1582",
+      "vehicle_id": "10",
+      "trip_id": "1582",
+      "total_trip_distance_km": 0.3823183261487197,
+      "raw_points_in_window": 67,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "10_1602",
+      "vehicle_id": "10",
+      "trip_id": "1602",
+      "total_trip_distance_km": 0.631337213853948,
+      "raw_points_in_window": 66,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "10_1875",
+      "vehicle_id": "10",
+      "trip_id": "1875",
+      "total_trip_distance_km": 2.0191113514237533,
+      "raw_points_in_window": 65,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "10_1914",
+      "vehicle_id": "10",
+      "trip_id": "1914",
+      "total_trip_distance_km": 1.6577917722928326,
+      "raw_points_in_window": 66,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "10_2011",
+      "vehicle_id": "10",
+      "trip_id": "2011",
+      "total_trip_distance_km": 1.4911646839248582,
+      "raw_points_in_window": 71,
+      "max_window_gap_s": 0.9,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "10_2382",
+      "vehicle_id": "10",
+      "trip_id": "2382",
+      "total_trip_distance_km": 2.6208245217403987,
+      "raw_points_in_window": 67,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "10_2384",
+      "vehicle_id": "10",
+      "trip_id": "2384",
+      "total_trip_distance_km": 3.400640330605909,
+      "raw_points_in_window": 65,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "10_2395",
+      "vehicle_id": "10",
+      "trip_id": "2395",
+      "total_trip_distance_km": 1.0070408089427658,
+      "raw_points_in_window": 62,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "10_2556",
+      "vehicle_id": "10",
+      "trip_id": "2556",
+      "total_trip_distance_km": 1.2830723385015042,
+      "raw_points_in_window": 67,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "10_2871",
+      "vehicle_id": "10",
+      "trip_id": "2871",
+      "total_trip_distance_km": 0.9649267819722822,
+      "raw_points_in_window": 62,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "10_3017",
+      "vehicle_id": "10",
+      "trip_id": "3017",
+      "total_trip_distance_km": 2.100700236373343,
+      "raw_points_in_window": 68,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "10_3211",
+      "vehicle_id": "10",
+      "trip_id": "3211",
+      "total_trip_distance_km": 5.402497518396841,
+      "raw_points_in_window": 61,
+      "max_window_gap_s": 2.0,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1026",
+      "vehicle_id": "455",
+      "trip_id": "1026",
+      "total_trip_distance_km": 1.2163571979734074,
+      "raw_points_in_window": 68,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_1143",
+      "vehicle_id": "455",
+      "trip_id": "1143",
+      "total_trip_distance_km": 1.2070694161521052,
+      "raw_points_in_window": 63,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1245",
+      "vehicle_id": "455",
+      "trip_id": "1245",
+      "total_trip_distance_km": 2.195616757604819,
+      "raw_points_in_window": 68,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1262",
+      "vehicle_id": "455",
+      "trip_id": "1262",
+      "total_trip_distance_km": 2.4000228643814805,
+      "raw_points_in_window": 69,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_1310",
+      "vehicle_id": "455",
+      "trip_id": "1310",
+      "total_trip_distance_km": 7.990029818064322,
+      "raw_points_in_window": 60,
+      "max_window_gap_s": 2.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1373",
+      "vehicle_id": "455",
+      "trip_id": "1373",
+      "total_trip_distance_km": 2.6678454950121706,
+      "raw_points_in_window": 62,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1384",
+      "vehicle_id": "455",
+      "trip_id": "1384",
+      "total_trip_distance_km": 4.617812407440571,
+      "raw_points_in_window": 64,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_1402",
+      "vehicle_id": "455",
+      "trip_id": "1402",
+      "total_trip_distance_km": 4.412328235500282,
+      "raw_points_in_window": 68,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1421",
+      "vehicle_id": "455",
+      "trip_id": "1421",
+      "total_trip_distance_km": 2.622904119508062,
+      "raw_points_in_window": 67,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_1492",
+      "vehicle_id": "455",
+      "trip_id": "1492",
+      "total_trip_distance_km": 2.656061335987508,
+      "raw_points_in_window": 65,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1493",
+      "vehicle_id": "455",
+      "trip_id": "1493",
+      "total_trip_distance_km": 2.181065229750176,
+      "raw_points_in_window": 68,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_1510",
+      "vehicle_id": "455",
+      "trip_id": "1510",
+      "total_trip_distance_km": 3.276736869990766,
+      "raw_points_in_window": 63,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_1661",
+      "vehicle_id": "455",
+      "trip_id": "1661",
+      "total_trip_distance_km": 2.209756065474823,
+      "raw_points_in_window": 67,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1716",
+      "vehicle_id": "455",
+      "trip_id": "1716",
+      "total_trip_distance_km": 2.3227825792961387,
+      "raw_points_in_window": 62,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1727",
+      "vehicle_id": "455",
+      "trip_id": "1727",
+      "total_trip_distance_km": 2.450440226614534,
+      "raw_points_in_window": 72,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_1779",
+      "vehicle_id": "455",
+      "trip_id": "1779",
+      "total_trip_distance_km": 5.195664058268046,
+      "raw_points_in_window": 64,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_1788",
+      "vehicle_id": "455",
+      "trip_id": "1788",
+      "total_trip_distance_km": 1.3457974707814042,
+      "raw_points_in_window": 60,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1879",
+      "vehicle_id": "455",
+      "trip_id": "1879",
+      "total_trip_distance_km": 0.8798135912417806,
+      "raw_points_in_window": 64,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1938",
+      "vehicle_id": "455",
+      "trip_id": "1938",
+      "total_trip_distance_km": 1.451057327985679,
+      "raw_points_in_window": 66,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1954",
+      "vehicle_id": "455",
+      "trip_id": "1954",
+      "total_trip_distance_km": 0.771417206181435,
+      "raw_points_in_window": 68,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1970",
+      "vehicle_id": "455",
+      "trip_id": "1970",
+      "total_trip_distance_km": 1.4339274696709372,
+      "raw_points_in_window": 62,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_1997",
+      "vehicle_id": "455",
+      "trip_id": "1997",
+      "total_trip_distance_km": 0.914413449817236,
+      "raw_points_in_window": 65,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_2006",
+      "vehicle_id": "455",
+      "trip_id": "2006",
+      "total_trip_distance_km": 1.2292423285907623,
+      "raw_points_in_window": 68,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_2025",
+      "vehicle_id": "455",
+      "trip_id": "2025",
+      "total_trip_distance_km": 12.267532640721075,
+      "raw_points_in_window": 66,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_2105",
+      "vehicle_id": "455",
+      "trip_id": "2105",
+      "total_trip_distance_km": 0.9859330372280304,
+      "raw_points_in_window": 63,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_2154",
+      "vehicle_id": "455",
+      "trip_id": "2154",
+      "total_trip_distance_km": 2.07233703647703,
+      "raw_points_in_window": 64,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_2241",
+      "vehicle_id": "455",
+      "trip_id": "2241",
+      "total_trip_distance_km": 3.326003679553774,
+      "raw_points_in_window": 64,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_2314",
+      "vehicle_id": "455",
+      "trip_id": "2314",
+      "total_trip_distance_km": 1.6214292709761713,
+      "raw_points_in_window": 69,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_601",
+      "vehicle_id": "455",
+      "trip_id": "601",
+      "total_trip_distance_km": 0.8213488701713778,
+      "raw_points_in_window": 63,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_603",
+      "vehicle_id": "455",
+      "trip_id": "603",
+      "total_trip_distance_km": 3.301338817517047,
+      "raw_points_in_window": 67,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_627",
+      "vehicle_id": "455",
+      "trip_id": "627",
+      "total_trip_distance_km": 2.0480721778076307,
+      "raw_points_in_window": 63,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_646",
+      "vehicle_id": "455",
+      "trip_id": "646",
+      "total_trip_distance_km": 1.927820787800708,
+      "raw_points_in_window": 66,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_728",
+      "vehicle_id": "455",
+      "trip_id": "728",
+      "total_trip_distance_km": 1.2601916332244072,
+      "raw_points_in_window": 68,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_757",
+      "vehicle_id": "455",
+      "trip_id": "757",
+      "total_trip_distance_km": 4.622967399292558,
+      "raw_points_in_window": 65,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_775",
+      "vehicle_id": "455",
+      "trip_id": "775",
+      "total_trip_distance_km": 1.2375234444008223,
+      "raw_points_in_window": 69,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_900",
+      "vehicle_id": "455",
+      "trip_id": "900",
+      "total_trip_distance_km": 2.5172948017119072,
+      "raw_points_in_window": 65,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "455_901",
+      "vehicle_id": "455",
+      "trip_id": "901",
+      "total_trip_distance_km": 2.762571184250989,
+      "raw_points_in_window": 62,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    },
+    {
+      "trip_key": "455_941",
+      "vehicle_id": "455",
+      "trip_id": "941",
+      "total_trip_distance_km": 3.915482273737508,
+      "raw_points_in_window": 62,
+      "max_window_gap_s": 1.1,
+      "window_coverage_valid": false
+    },
+    {
+      "trip_key": "541_845",
+      "vehicle_id": "541",
+      "trip_id": "845",
+      "total_trip_distance_km": 0.9360633077421788,
+      "raw_points_in_window": 66,
+      "max_window_gap_s": 1.0,
+      "window_coverage_valid": true
+    }
+  ]
+}

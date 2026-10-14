@@ -1,0 +1,253 @@
+{
+  "source": "NASA PCoE Li-ion Battery Aging Dataset",
+  "processed_file": "data/processed/battery_measurements.csv",
+  "sample_count": 2040,
+  "battery_count": 22,
+  "measurements": {
+    "capacity_ah": {
+      "units": "Ah",
+      "missing_count": 0,
+      "observed_range": {
+        "min": 0.044092291840801906,
+        "max": 2.4440624320786557
+      },
+      "outliers": {
+        "method": "1.5 * IQR fences; review flag only, no removal",
+        "lower_fence": 0.8097967834336501,
+        "upper_fence": 2.285003612134525,
+        "count": 218
+      }
+    },
+    "reference_capacity_ah": {
+      "units": "Ah",
+      "missing_count": 0,
+      "observed_range": {
+        "min": 0.05576824445206542,
+        "max": 2.0131928855838543
+      },
+      "outliers": {
+        "method": "1.5 * IQR fences; review flag only, no removal",
+        "lower_fence": 0.9625938491601337,
+        "upper_fence": 2.3587706269077384,
+        "count": 161
+      }
+    },
+    "soh_percent": {
+      "units": "%",
+      "missing_count": 0,
+      "observed_range": {
+        "min": 3.378875675170841,
+        "max": 2179.8236981997507
+      },
+      "outliers": {
+        "method": "1.5 * IQR fences; review flag only, no removal",
+        "lower_fence": 57.43833789484026,
+        "upper_fence": 124.7328567410186,
+        "count": 309
+      }
+    },
+    "ambient_temperature_c": {
+      "units": "degC",
+      "missing_count": 0,
+      "observed_range": {
+        "min": 4.0,
+        "max": 44.0
+      },
+      "outliers": {
+        "method": "1.5 * IQR fences; review flag only, no removal",
+        "lower_fence": 24.0,
+        "upper_fence": 24.0,
+        "count": 665
+      }
+    },
+    "voltage_mean": {
+      "units": "V",
+      "missing_count": 0,
+      "observed_range": {
+        "min": 2.5300104336765603,
+        "max": 4.061944839809303
+      },
+      "outliers": {
+        "method": "1.5 * IQR fences; review flag only, no removal",
+        "lower_fence": 3.2188998180620154,
+        "upper_fence": 3.692442884120388,
+        "count": 188
+      }
+    },
+    "voltage_min": {
+      "units": "V",
+      "missing_count": 0,
+      "observed_range": {
+        "min": 0.9861339962587278,
+        "max": 2.699983457940659
+      },
+      "outliers": {
+        "method": "1.5 * IQR fences; review flag only, no removal",
+        "lower_fence": 1.2318494380375573,
+        "upper_fence": 3.4468261614798874,
+        "count": 3
+      }
+    },
+    "voltage_max": {
+      "units": "V",
+      "missing_count": 0,
+      "observed_range": {
+        "min": 3.6772190710694983,
+        "max": 4.519252349646744
+      },
+      "outliers": {
+        "method": "1.5 * IQR fences; review flag only, no removal",
+        "lower_fence": 4.160294759250049,
+        "upper_fence": 4.221087348691035,
+        "count": 42
+      }
+    },
+    "current_mean": {
+      "units": "A",
+      "missing_count": 0,
+      "observed_range": {
+        "min": -3.976472905870513,
+        "max": -0.2099858295389897
+      },
+      "outliers": {
+        "method": "1.5 * IQR fences; review flag only, no removal",
+        "lower_fence": -2.3964460414120574,
+        "upper_fence": -1.2745350423117663,
+        "count": 646
+      }
+    },
+    "current_abs_mean": {
+      "units": "A",
+      "missing_count": 0,
+      "observed_range": {
+        "min": 0.21135255492589658,
+        "max": 3.976502981157763
+      },
+      "outliers": {
+        "method": "1.5 * IQR fences; review flag only, no removal",
+        "lower_fence": 1.2746286016575636,
+        "upper_fence": 2.396389905804579,
+        "count": 646
+      }
+    },
+    "temperature_mean": {
+      "units": "degC",
+      "missing_count": 0,
+      "observed_range": {
+        "min": 4.857763577409316,
+        "max": 58.954810986890266
+      },
+      "outliers": {
+        "method": "1.5 * IQR fences; review flag only, no removal",
+        "lower_fence": 19.680292681202488,
+        "upper_fence": 49.6150699999307,
+        "count": 416
+      }
+    },
+    "temperature_max": {
+      "units": "degC",
+      "missing_count": 0,
+      "observed_range": {
+        "min": 7.124889090041003,
+        "max": 69.86974573152932
+      },
+      "outliers": {
+        "method": "1.5 * IQR fences; review flag only, no removal",
+        "lower_fence": 13.4027900355083,
+        "upper_fence": 76.66018258235121,
+        "count": 221
+      }
+    },
+    "discharge_duration_s": {
+      "units": "s",
+      "missing_count": 0,
+      "observed_range": {
+        "min": 96.484,
+        "max": 6574.671
+      },
+      "outliers": {
+        "method": "1.5 * IQR fences; review flag only, no removal",
+        "lower_fence": 2248.266,
+        "upper_fence": 3867.89,
+        "count": 681
+      }
+    }
+  },
+  "duplicates": {
+    "key": [
+      "battery_id",
+      "cycle_index"
+    ],
+    "count": 0
+  },
+  "discharge_cycle_gaps_after_exclusions": 3,
+  "positive_capacity_review_rows_retained": 210,
+  "capacity_review_flag_counts": {
+    "below_0.5_ah_retained": 202,
+    "above_2.0_ah_retained": 8
+  },
+  "review_thresholds_are_non_scientific_triage_only": true,
+  "trace_diagnostic_note": "The per-row preparation report records raw trace minima, sample counts, duration, and sparse absolute-current integral for flagged and excluded observations. The integral is not a capacity label or an exclusion criterion.",
+  "excluded_observations": {
+    "count": 3,
+    "rows": [
+      {
+        "battery_id": "B0042",
+        "source_dataset": "NASA PCoE Li-ion Battery Aging Dataset",
+        "source_file": "B0042.mat",
+        "source_cycle_index": 15,
+        "capacity_ah": 0.0,
+        "reason": "non_positive_capacity",
+        "voltage_min_v": 3.3813406435619986,
+        "voltage_last_v": 3.3813406435619986,
+        "duration_s": 2646.625,
+        "voltage_sample_count": 274,
+        "current_sample_count": 274,
+        "time_sample_count": 274,
+        "absolute_current_integral_ah_diagnostic": 1.4712135921029772
+      },
+      {
+        "battery_id": "B0043",
+        "source_dataset": "NASA PCoE Li-ion Battery Aging Dataset",
+        "source_file": "B0043.mat",
+        "source_cycle_index": 15,
+        "capacity_ah": 0.0,
+        "reason": "non_positive_capacity",
+        "voltage_min_v": 3.3579241790202077,
+        "voltage_last_v": 3.3579241790202077,
+        "duration_s": 2646.625,
+        "voltage_sample_count": 274,
+        "current_sample_count": 274,
+        "time_sample_count": 274,
+        "absolute_current_integral_ah_diagnostic": 1.453824763471636
+      },
+      {
+        "battery_id": "B0044",
+        "source_dataset": "NASA PCoE Li-ion Battery Aging Dataset",
+        "source_file": "B0044.mat",
+        "source_cycle_index": 15,
+        "capacity_ah": 0.0,
+        "reason": "non_positive_capacity",
+        "voltage_min_v": 3.2896584926178556,
+        "voltage_last_v": 3.2896584926178556,
+        "duration_s": 2646.625,
+        "voltage_sample_count": 274,
+        "current_sample_count": 274,
+        "time_sample_count": 274,
+        "absolute_current_integral_ah_diagnostic": 1.4574247466990697
+      }
+    ]
+  },
+  "soh_target": {
+    "definition": "100 * measured discharge capacity / median of the first 10 valid positive discharge capacities per battery",
+    "status": "provisional_not_ready_for_benchmark_training",
+    "observed_range_percent": {
+      "min": 3.378875675170841,
+      "max": 2179.8236981997507
+    },
+    "above_100_percent_count": 450,
+    "above_120_percent_count": 189,
+    "below_50_percent_count": 149,
+    "reason_for_review": "The first-10-capacity reference turns some documented very low readings into implausibly high ratios. The source itself says B0041-B0044 contain unexplained low-capacity discharges; different cells also use different temperatures, currents, profiles, and voltage cut-offs."
+  }
+}

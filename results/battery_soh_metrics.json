@@ -1,0 +1,46 @@
+{
+  "model_name": "Gradient Boosting Regressor",
+  "task": "Battery State of Health (SOH) Estimation",
+  "dataset": "NASA PCoE Li-ion Battery Aging Dataset",
+  "cell_type": "2.0 Ah commercial 18650 Li-ion cells",
+  "target_name": "soh_percent",
+  "target_definition": "100 * measured discharge capacity (Ah) / 2.0 Ah rated capacity",
+  "rated_capacity_ah": 2.0,
+  "held_out_test_cell": "B0006",
+  "test_samples": 168,
+  "train_samples": 580,
+  "metrics": {
+    "mae_percent": 2.8889,
+    "rmse_percent": 3.4979,
+    "r2_score": 0.9225,
+    "mape_percent": 3.8139
+  },
+  "candidate_models": {
+    "gradient_boosting": {
+      "mae_percent": 2.8889,
+      "rmse_percent": 3.4979,
+      "r2_score": 0.9225,
+      "mape_percent": 3.8139
+    },
+    "random_forest": {
+      "mae_percent": 3.5261,
+      "rmse_percent": 4.2331,
+      "r2_score": 0.8865,
+      "mape_percent": 4.5379
+    },
+    "ridge_regression": {
+      "mae_percent": 4.2427,
+      "rmse_percent": 4.5307,
+      "r2_score": 0.87,
+      "mape_percent": 5.6947
+    }
+  },
+  "feature_names": [
+    "cycle_index",
+    "voltage_mean",
+    "current_mean",
+    "temperature_mean"
+  ],
+  "uncertainty_margin_90_percent": 5.75,
+  "disclaimer": "Laboratory cell degradation model based on NASA 18650 cells under CC-CV cycle aging. Not a certified BMS diagnostic."
+}

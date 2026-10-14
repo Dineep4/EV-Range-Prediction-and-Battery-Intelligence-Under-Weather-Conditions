@@ -1,0 +1,104 @@
+{
+  "source": "CALCE PL pouch-cell aging data (0-60% SOC, C/2; PL03 and PL10)",
+  "source_url": "https://calce.umd.edu/battery-data",
+  "archive_url": "https://web.calce.umd.edu/batteries/data/pl/SOC_0-60_HalfC.zip",
+  "assessment_status": "incomplete_measurement_tables_not_decoded",
+  "archive": {
+    "path": "data/raw/CALCE/PL_SOC_0-60_HalfC.zip",
+    "size_bytes": 89357014,
+    "http_status": 200,
+    "authentication_required": false,
+    "zip_integrity_check": "passed"
+  },
+  "raw_files": [
+    {
+      "path": "data/raw/CALCE/SOC_0%-60%_HalfC/PL03.mat",
+      "size_bytes": 45830776,
+      "matlab_header": "MATLAB 5.0 MAT-file",
+      "top_level_variable": "PL03",
+      "outer_cell_shape": [
+        25,
+        3
+      ],
+      "operation_block_count": 24,
+      "operation_blocks": {
+        "Single Cycle": 2,
+        "75 Partial Cycles": 2,
+        "50 Partial Cycles": 17,
+        "50 Partial Cycles (Data Missing)": 2,
+        "100 Partial Cycles": 1
+      },
+      "known_missing_data_operation_blocks": 2
+    },
+    {
+      "path": "data/raw/CALCE/SOC_0%-60%_HalfC/PL10.mat",
+      "size_bytes": 47571788,
+      "matlab_header": "MATLAB 5.0 MAT-file",
+      "top_level_variable": "PL10",
+      "outer_cell_shape": [
+        25,
+        3
+      ],
+      "operation_block_count": 24,
+      "operation_blocks": {
+        "Single Cycle": 2,
+        "75 Partial Cycles": 2,
+        "50 Partial Cycles": 17,
+        "50 Partial Cycles (Data Missing)": 2,
+        "100 Partial Cycles": 1
+      },
+      "known_missing_data_operation_blocks": 2
+    },
+    {
+      "path": "data/raw/CALCE/SOC_0%-60%_HalfC/Readme.txt",
+      "size_bytes": 1766
+    }
+  ],
+  "documented_test_conditions": {
+    "cell_count": 2,
+    "cell_ids": [
+      "PL03",
+      "PL10"
+    ],
+    "cell_rating_ah": 1.5,
+    "chemistry": "graphite/LiCoO2 pouch cell",
+    "partial_cycle_soc_range_percent": [
+      0,
+      60
+    ],
+    "partial_cycle_rate": "C/2",
+    "ambient_temperature_c": "25 +/- 2",
+    "reference_performance_test": "Full CCCV charge / CC discharge at C/2 between 4.2 V and 2.75 V, described every 50 or 100 partial cycles."
+  },
+  "documented_measurements": {
+    "time": "s",
+    "date_time": "MATLAB serial date number",
+    "step": "Arbin step index",
+    "cycle": "Arbin cycle number",
+    "current": "A; positive for charge and negative for discharge",
+    "voltage": "V",
+    "charge": "cumulative Ah",
+    "discharge": "cumulative Ah"
+  },
+  "measurement_sample_count": null,
+  "cycle_level_quality_checks": {
+    "duplicate_cycles": "not evaluated",
+    "capacity_value_ranges": "not evaluated",
+    "capacity_outliers": "not evaluated",
+    "recorded_units": "documented in included Readme.txt; raw data values not decoded",
+    "reference_performance_cycle_matching": "not evaluated",
+    "data_missing_operation_blocks": "2 per battery explicitly identified in the operation labels; included Readme attributes missing operations to a test-system software fault"
+  },
+  "candidate_soh_definition": {
+    "units": "%",
+    "definition": "100 * measured capacity from a verified full C/2 characterization discharge (4.2 V to 2.75 V) / the first verified full characterization discharge capacity for that cell",
+    "status": "candidate_only_not_generated"
+  },
+  "decode_blocker": {
+    "observed_data_representation": "scipy.io.loadmat reads each operation's Data element as a scipy.io.matlab.MatlabOpaque MCOS table object",
+    "available_reader_status": "No MATLAB, Octave, h5py, mat73, hdf5storage, pymatreader, or mat4py is available in the configured environment.",
+    "consequence": "The measurement rows are not decoded; no cycle-level processed table, target labels, or training-ready quality report is produced."
+  },
+  "terms": "The official CALCE page describes its experimental data as open access and requests citation for publication use. No dataset-specific reuse license was identified; no redistribution rights are inferred.",
+  "training_status": "blocked"
+}

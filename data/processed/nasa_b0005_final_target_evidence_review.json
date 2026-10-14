@@ -1,0 +1,117 @@
+{
+  "report_status": "complete_narrow_evidence_review",
+  "scope": {
+    "battery_id": "B0005",
+    "questions": [
+      "Whether a measured reference-capacity or baseline-capacity operation is explicitly identified",
+      "Whether the below-1.4-Ah records are explained despite the stated end-of-life stopping threshold",
+      "Whether 2.0 Ah is supported as the denominator for a rated-capacity ratio",
+      "Whether the first-ten-capacity median is documented as a measured reference"
+    ],
+    "models_trained": false,
+    "raw_data_modified": false,
+    "existing_labels_modified": false,
+    "existing_audit_reports_modified": false
+  },
+  "evidence_sources": {
+    "official_nasa_dataset_page": {
+      "url": "https://data.nasa.gov/dataset/li-ion-battery-aging-datasets",
+      "reviewed_at": "2026-10-11",
+      "facts": [
+        "Describes the experiments as run-to-failure time series collected at different temperatures and under different operational profiles.",
+        "States EOL as 30% fade in rated capacity, from 2 Ah to 1.4 Ah.",
+        "Defines the MATLAB discharge Capacity field in Ah for discharge to 2.7 V.",
+        "Explains that discharge current levels and preset voltage thresholds varied; some thresholds were below the OEM-recommended 2.7 V.",
+        "Notes differences in depth of discharge, rest duration, and intrinsic variability, and says batteries do not have the same state of life at the same cycle index.",
+        "Does not identify any B0005 cycle as a reference-performance test or provide a cell-specific measured baseline capacity.",
+        "Does not recommend the first ten positive discharge values, their median, or any other initial-cycle statistic as a reference."
+      ]
+    },
+    "local_readme": {
+      "path": "data/raw/NASA/README1.txt",
+      "facts": [
+        "Groups batteries 5, 6, 7, and 18 as room-temperature tests.",
+        "Documents charging at 1.5 A CC to 4.2 V, then CV until current falls to 20 mA.",
+        "Documents B0005 discharge at 2 A CC to 2.7 V.",
+        "Describes the Capacity field as battery capacity in Ah for discharge to 2.7 V.",
+        "States rated capacity as 2 Ah and the group EOL criterion as 30% fade, from 2 Ah to 1.4 Ah.",
+        "Does not designate a B0005 baseline or identify any cycle as a reference-capacity test.",
+        "Does not explain why testing continued below the stated 1.4 Ah stopping criterion."
+      ]
+    },
+    "local_cycle_data_and_prior_reports": {
+      "raw_file": "data/raw/NASA/B0005.mat",
+      "raw_cycle_evidence_report": "data/processed/nasa_b0005_reference_investigation.json",
+      "all_battery_evidence_report": "data/processed/nasa_soh_reference_evidence_audit.json",
+      "verified_facts": [
+        "B0005.mat contains 616 operations: 170 charge, 168 discharge, and 278 impedance operations.",
+        "The 168 discharge Capacity records are finite and positive, and all have 24 C ambient-temperature metadata.",
+        "The measured discharge capacities span 1.2874525221 to 1.8564874208 Ah.",
+        "The first measured discharge capacity is 1.8564874208 Ah; it is not 2 Ah and is not identified in the local records as a reference test.",
+        "The first-ten-positive-capacity median is 1.8352043353 Ah; the local records do not identify those cycles as reference tests.",
+        "44 recorded discharge capacities are below 1.4 Ah. The first is source cycle index 449 at 1.3967008233 Ah; the last recorded capacity is 1.3250793286 Ah.",
+        "The raw cycle array, source cycle indices, and measured capacities reconcile with the prior B0005 evidence report."
+      ],
+      "derived_rated_capacity_ratio_check": {
+        "definition": "100 * measured discharge Capacity (Ah) / 2.0 Ah documented rated capacity",
+        "minimum_percent": 64.37262610689704,
+        "maximum_percent": 92.82437104090788,
+        "first_record_percent": 92.82437104090788,
+        "first_ten_median_ratio_percent_not_a_reference_soh": 91.76021676261933,
+        "eol_threshold_equivalent_percent": 70.0,
+        "interpretation": "These values are arithmetic ratios to the documented rated capacity. They are not ratios to a measured B0005 baseline and are not labeled measured-reference SOH."
+      }
+    },
+    "other_local_nasa_readmes": {
+      "paths": [
+        "data/raw/NASA/README2.txt",
+        "data/raw/NASA/README_25_26_27_28.txt",
+        "data/raw/NASA/README_29_30_31_32.txt",
+        "data/raw/NASA/README_33_34_36.txt",
+        "data/raw/NASA/README_38_39_40.txt",
+        "data/raw/NASA/README_41_42_43_44.txt"
+      ],
+      "relevance": "They describe other battery groups and show that test conditions and some group endpoint statements differ. They provide no B0005-specific baseline designation and no explanation for B0005 records below 1.4 Ah."
+    }
+  },
+  "question_findings": {
+    "explicit_b0005_measured_reference_or_baseline": {
+      "finding": "No explicit designation was found in the official dataset page, the local B0005 group README, the B0005 raw cycle metadata, or the two existing NASA evidence reports.",
+      "status": "not_established",
+      "unresolved": "A B0005 experiment schedule or curator record may exist outside the reviewed local source materials; no such record is present in the reviewed project files."
+    },
+    "reason_for_below_eol_records": {
+      "finding": "The README and official page state a 1.4 Ah EOL stopping point, while 44 recorded B0005 discharge values are below 1.4 Ah. The reviewed records do not explain the discrepancy.",
+      "status": "unresolved",
+      "possible_explanations": "None asserted. The evidence does not distinguish an approximate threshold, a changed stopping rule, continued testing, or a documentation/data mismatch."
+    },
+    "2_ah_denominator_for_rated_capacity_ratio": {
+      "finding": "The official page and README explicitly describe 2 Ah as rated capacity and use 1.4 Ah as 30% fade from that rating. The B0005 README describes a 2 A discharge to 2.7 V, matching the stated Capacity-field cutoff.",
+      "decision": "Supported for a B0005 capacity-to-documented-rated-capacity ratio, provided the target is named exactly as a rated-capacity ratio and the group-level rating and protocol limitations are disclosed.",
+      "limitation": "The source does not establish that 2 Ah is a separately measured initial capacity for this particular cell or a cell-specific reference-performance result. Therefore this denominator must not be presented as measured-reference SOH."
+    },
+    "first_ten_median_as_reference": {
+      "finding": "No official or local documentation reviewed designates the first ten positive measurements or their median as a reference test or baseline.",
+      "status": "unsupported_heuristic",
+      "additional_concern": "The first observed value is itself below the documented 2 Ah rating, and documentation does not establish that the sequence begins with a separately conditioned beginning-of-life reference test."
+    }
+  },
+  "target_and_modeling_constraints": {
+    "recommended_target_name": "B0005 discharge capacity as percent of documented rated capacity",
+    "definition": "100 * measured discharge Capacity (Ah) / 2.0 Ah documented rated capacity",
+    "explicit_non_equivalence": "This is a capacity-to-rated-capacity ratio, not measured-reference SOH and not proof of a cell-specific beginning-of-life capacity.",
+    "prediction_time_contract": "For a next-discharge prediction made before that discharge begins, use only information available before the target discharge. Exclude the target discharge Capacity and all target-discharge trace samples or derived statistics, future operations, and target-derived denominator values.",
+    "evaluation": "Use chronological evaluation and do not randomly distribute cycles from B0005 across train and test. A single cell does not establish generalization to other cells.",
+    "below_eol_handling": "Do not silently remove or clip the 44 below-1.4-Ah observations. Any model or evaluation using the series must disclose the conflict with the stated stopping rule and preserve source-cycle provenance.",
+    "measured_reference_soh_training": "Remains blocked unless a designated, condition-matched B0005 measured reference is obtained."
+  },
+  "recommendation": {
+    "choice": "B",
+    "decision": "Proceed with a clearly named capacity-to-rated-capacity prediction target for B0005, subject to the definition, prediction-time leakage rules, and limitations recorded above. Do not describe this target as measured-reference SOH.",
+    "scope": "This is a recommendation for a distinct prediction estimand; this investigation did not create labels, alter existing artifacts, or train a model.",
+    "follow_up": [
+      "Keep the 44 below-threshold readings visible and flag the unexplained EOL discrepancy in any downstream dataset or evaluation.",
+      "If measured-reference SOH is still required, request the cell-specific reference-performance schedule and the explanation of continued testing below 1.4 Ah from the NASA PCoE dataset custodian."
+    ]
+  }
+}

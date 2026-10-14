@@ -1,0 +1,145 @@
+{
+  "source": "Vehicle Energy Dataset (VED)",
+  "source_url": "https://github.com/gsoh/VED/tree/6baa4963782d515a67d32a5490bd5d11f5d9bf0d",
+  "license_note": "Repository states Apache 2.0; license scope over measurements is not separately described. Local inspection only.",
+  "raw_archives_unchanged": true,
+  "source_point_rows_for_pure_evs": 476308,
+  "trip_count": 504,
+  "vehicle_ids": [
+    "10",
+    "455",
+    "541"
+  ],
+  "trip_count_by_vehicle": {
+    "10": 201,
+    "455": 293,
+    "541": 10
+  },
+  "energy_labeled_trip_count": 48,
+  "energy_labeled_trip_count_by_vehicle": {
+    "10": 11,
+    "455": 36,
+    "541": 1
+  },
+  "measurement_summary_method": "Ranges are observed min/max; outliers are review-only counts using 1.5*IQR fences with nearest-rank quartiles.",
+  "measurement_summaries": {
+    "trip_duration_s": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": 48.4,
+        "max": 4723.2
+      },
+      "iqr_outlier_count_review_only": 36
+    },
+    "speed_integrated_distance_km": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": 0.08234902565344626,
+        "max": 21.14507466284032
+      },
+      "iqr_outlier_count_review_only": 35
+    },
+    "gps_path_distance_km": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": 0.06766533572288243,
+        "max": 21.1487043010605
+      },
+      "iqr_outlier_count_review_only": 29
+    },
+    "battery_signed_energy_kwh": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": -3.3538136284722277,
+        "max": 0.013605569444444455
+      },
+      "iqr_outlier_count_review_only": 18
+    },
+    "energy_consumed_kwh": {
+      "missing_count": 456,
+      "observed_range": {
+        "min": 0.03745877083333334,
+        "max": 1.926225006944443
+      },
+      "iqr_outlier_count_review_only": 5
+    },
+    "soc_delta_percentage_points": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": -22.926830291799995,
+        "max": 0.12195587160000798
+      },
+      "iqr_outlier_count_review_only": 27
+    },
+    "outside_air_temperature_mean_c": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": -14.452944136889784,
+        "max": 35.52917232021709
+      },
+      "iqr_outlier_count_review_only": 0
+    },
+    "speed_distance_coverage_fraction": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": 0.18400000000000002,
+        "max": 1.0
+      },
+      "iqr_outlier_count_review_only": 18
+    },
+    "gps_distance_coverage_fraction": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": 0.18400000000000002,
+        "max": 1.0
+      },
+      "iqr_outlier_count_review_only": 18
+    },
+    "energy_coverage_fraction": {
+      "missing_count": 0,
+      "observed_range": {
+        "min": 0.18400000000000002,
+        "max": 1.0
+      },
+      "iqr_outlier_count_review_only": 18
+    }
+  },
+  "quality_flag_counts": {
+    "energy_coverage_below_95_percent": 453,
+    "speed_distance_coverage_below_95_percent": 453,
+    "nonpositive_or_over_1s_sample_gaps": 500,
+    "soc_change_unavailable_or_below_0.05_percentage_points": 28,
+    "battery_energy_sign_disagrees_with_soc_change": 2
+  },
+  "timestamp_quality": {
+    "trips_with_duplicate_timestamps": 0,
+    "duplicate_timestamp_count": 0,
+    "trips_with_source_order_violations": 0,
+    "source_order_violation_count": 0
+  },
+  "missing_measurements": {
+    "energy_consumed_kwh": 456,
+    "speed_integrated_distance_km": 453,
+    "gps_path_distance_km": 453,
+    "outside_air_temperature_mean_c": 0
+  },
+  "target_definitions": {
+    "energy_consumed_kwh": "Derived per-trip net battery energy from trapezoidal integration of HV Battery Current[A] * HV Battery Voltage[V], with sign retained only when consistent with decreasing SOC.",
+    "speed_integrated_distance_km": "Derived per-trip distance from trapezoidal integration of Vehicle Speed[km/h] against Timestamp(ms).",
+    "range_km": "Not supplied; no range labels are claimed."
+  },
+  "interval_policy": {
+    "maximum_interpolation_gap_s": 1.0,
+    "larger_or_nonpositive_intervals": "Not integrated; counted and exposed by quality flags."
+  },
+  "limitations": [
+    "Only three pure EV identities are included; all are 2013 Nissan Leafs.",
+    "Trip energy and speed-integrated distance are derived, not supplied labels.",
+    "Battery-current sign is checked against SOC change per trip; mismatches are unlabeled.",
+    "Trips with under 95% telemetry coverage are not assigned an energy label.",
+    "Only outside-air temperature is available; weather-aware performance is not supported.",
+    "There is no direct, measured vehicle range target in the source."
+  ],
+  "parser_status": "processed",
+  "training_status": "Not ready for range prediction; an energy-consumption task may be considered after reviewing label coverage and identity-aware test size."
+}

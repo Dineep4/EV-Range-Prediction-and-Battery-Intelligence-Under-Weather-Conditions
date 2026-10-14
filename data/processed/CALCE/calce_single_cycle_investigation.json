@@ -1,0 +1,282 @@
+{
+  "report_version": 1,
+  "investigation_status": "candidate_discharge_intervals_found_protocol_not_fully_verified",
+  "scope": {
+    "files_inspected": [
+      "data/raw/CALCE/CALCE_Export/PL03_row02_Single_Cycle.csv",
+      "data/raw/CALCE/CALCE_Export/PL03_row18_Single_Cycle.csv",
+      "data/raw/CALCE/CALCE_Export/PL10_row02_Single_Cycle.csv",
+      "data/raw/CALCE/CALCE_Export/PL10_row18_Single_Cycle.csv"
+    ],
+    "validation_report": "data/processed/CALCE/calce_export_validation.json",
+    "readme": "data/raw/CALCE/SOC_0%-60%_HalfC/Readme.txt",
+    "source_files_modified": false,
+    "soh_labels_generated": false,
+    "training_performed": false
+  },
+  "verified_readme_facts": {
+    "readme_describes": [
+      "PL03 and PL10 tested in a 0%-60% SOC condition at C/2 and room temperature (25 +/- 2 C)",
+      "Operation labels and start dates",
+      "Single Cycle, partial-cycle, and Data Missing operation labels",
+      "Eight data columns and their units/meanings"
+    ],
+    "readme_explicitly_specifies_full_capacity_characterization_protocol": false,
+    "readme_does_not_define": [
+      "Single Cycle as a reference-performance or full-capacity characterization test",
+      "A specific full-charge sequence and acceptance criterion for these four files",
+      "A rule for selecting a reference capacity"
+    ],
+    "prior_validation_report_context": "The existing calce_export_validation.json records a candidate full CCCV charge / CC discharge protocol (4.2 V to 2.75 V) from dataset-level documentation, but that procedure is not present in the bundled Readme text inspected for this task. This report therefore treats it as a comparison hypothesis rather than a fact documented by that Readme."
+  },
+  "schema_and_units": {
+    "columns": [
+      "Time_sec",
+      "Date_Time",
+      "Step",
+      "Cycle",
+      "Current_Amp",
+      "Voltage_Volt",
+      "Charge_Ah",
+      "Discharge_Ah"
+    ],
+    "units": {
+      "Time_sec": "s",
+      "Date_Time": "MATLAB serial date number",
+      "Step": "Arbin step index",
+      "Cycle": "Arbin cycle number",
+      "Current_Amp": "A; positive charge, negative discharge",
+      "Voltage_Volt": "V",
+      "Charge_Ah": "cumulative Ah",
+      "Discharge_Ah": "cumulative Ah"
+    }
+  },
+  "files": [
+    {
+      "file": "PL03_row02_Single_Cycle.csv",
+      "cell_id": "PL03",
+      "source_outer_row": 2,
+      "rows": 1876,
+      "cycle_numbers": [1],
+      "step_numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "current_direction_counts": {
+        "negative_rows": 665,
+        "zero_rows": 96,
+        "positive_rows": 1115,
+        "minimum_a": -0.750067234039307,
+        "maximum_a": 0.750114679336548
+      },
+      "voltage_range_v": [2.74981355667114, 4.23110866546631],
+      "charge_capacity_counter_range_ah": [0.0, 1.4102161759317],
+      "discharge_capacity_counter_range_ah": [0.0, 1.38382075319124],
+      "sequence_observed": {
+        "initial_charge_steps": {
+          "steps": [2, 3, 4],
+          "step_2_current_a": [0.749389827251434, 0.749389827251434],
+          "step_3_current_a": [0.0149729857221246, 0.176787510514259],
+          "step_3_voltage_v": [4.20002555847168, 4.20051145553589],
+          "charge_counter_at_end_ah": 0.017344422042953,
+          "interpretation": "Observed short positive-current event and low-current activity near 4.2 V; the recorded preceding charge counter is small. This does not verify a complete full charge."
+        },
+        "candidate_constant_current_discharge": {
+          "step": 6,
+          "csv_row_range_including_header": [176, 839],
+          "rows": 664,
+          "current_range_a": [-0.750067234039307, -0.749342441558838],
+          "voltage_start_v": 4.13413619995117,
+          "voltage_min_v": 2.74981355667114,
+          "voltage_end_v": 2.74981355667114,
+          "time_range_sec": [1727.11011081681, 8362.27467413269],
+          "discharge_capacity_counter_range_ah": [0.002085539851142, 1.38382074026649],
+          "following_cutoff_transition": {
+            "step": 7,
+            "current_a": -0.0002480893745087,
+            "voltage_v": 2.80501794815063,
+            "discharge_capacity_counter_ah": 1.38382075319124
+          },
+          "candidate_discharge_capacity_ah": 1.38382075319124,
+          "candidate_status": "constant_current_discharge_to_approximately_2.75_v_observed; preceding full charge unverified"
+        },
+        "post_discharge_recharge_steps": [9, 10]
+      },
+      "quality_note": "The minimum voltage is approximately 2.75 V, matching the endpoint in the candidate protocol recorded by the prior validation report."
+    },
+    {
+      "file": "PL03_row18_Single_Cycle.csv",
+      "cell_id": "PL03",
+      "source_outer_row": 18,
+      "rows": 1897,
+      "cycle_numbers": [1],
+      "step_numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "current_direction_counts": {
+        "negative_rows": 654,
+        "zero_rows": 96,
+        "positive_rows": 1147,
+        "minimum_a": -0.750067234039307,
+        "maximum_a": 0.750114679336548
+      },
+      "voltage_range_v": [2.74997544288635, 4.24001264572144],
+      "charge_capacity_counter_range_ah": [0.0, 1.37812766296806],
+      "discharge_capacity_counter_range_ah": [0.0, 1.36382552556828],
+      "sequence_observed": {
+        "initial_charge_steps": {
+          "steps": [2, 3, 4],
+          "step_2_current_a": [0.749752223491669, 0.749752223491669],
+          "step_3_current_a": [0.0149729857221246, 0.0986889004707336],
+          "step_3_voltage_v": [4.20018768310547, 4.20051145553589],
+          "charge_counter_at_end_ah": 0.008098668876603,
+          "interpretation": "Observed short positive-current event and low-current activity near 4.2 V; the recorded preceding charge counter is small. This does not verify a complete full charge."
+        },
+        "candidate_constant_current_discharge": {
+          "step": 6,
+          "csv_row_range_including_header": [130, 783],
+          "rows": 654,
+          "current_range_a": [-0.750067234039307, -0.749342441558838],
+          "voltage_start_v": 4.13203191757202,
+          "voltage_min_v": 2.74997544288635,
+          "voltage_end_v": 2.74997544288635,
+          "time_range_sec": [1266.87347986353, 7806.23073755241],
+          "discharge_capacity_counter_range_ah": [0.002082276443093, 1.36382552556828],
+          "following_cutoff_transition": {
+            "step": 7,
+            "current_a": 0.0001143171684816,
+            "voltage_v": 2.80291342735291,
+            "discharge_capacity_counter_ah": 1.36382552556828
+          },
+          "candidate_discharge_capacity_ah": 1.36382552556828,
+          "candidate_status": "constant_current_discharge_to_approximately_2.75_v_observed; preceding full charge unverified"
+        },
+        "post_discharge_recharge_steps": [9, 10]
+      },
+      "quality_note": "The minimum voltage is approximately 2.75 V, matching the endpoint in the candidate protocol recorded by the prior validation report."
+    },
+    {
+      "file": "PL10_row02_Single_Cycle.csv",
+      "cell_id": "PL10",
+      "source_outer_row": 2,
+      "rows": 1979,
+      "cycle_numbers": [1],
+      "step_numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "current_direction_counts": {
+        "negative_rows": 695,
+        "zero_rows": 96,
+        "positive_rows": 1188,
+        "minimum_a": -0.750632047653198,
+        "maximum_a": 0.750464856624603
+      },
+      "voltage_range_v": [2.74986124038696, 4.20807647705078],
+      "charge_capacity_counter_range_ah": [0.0, 1.47563528484879],
+      "discharge_capacity_counter_range_ah": [0.0, 1.44331604385062],
+      "sequence_observed": {
+        "initial_charge_steps": {
+          "steps": [2, 3, 4],
+          "step_2_current_a": [0.749563276767731, 0.749563276767731],
+          "step_3_current_a": [0.014972448348999, 0.357384830713272],
+          "step_3_voltage_v": [4.19965600967407, 4.20014142990112],
+          "charge_counter_at_end_ah": 0.036960135734649,
+          "interpretation": "Observed short positive-current event and low-current activity near 4.2 V; the recorded preceding charge counter is small. This does not verify a complete full charge."
+        },
+        "candidate_constant_current_discharge": {
+          "step": 6,
+          "csv_row_range_including_header": [228, 919],
+          "rows": 692,
+          "current_range_a": [-0.750632047653198, -0.749910771846771],
+          "voltage_start_v": 4.13520622253418,
+          "voltage_min_v": 2.74986124038696,
+          "voltage_end_v": 2.74986124038696,
+          "time_range_sec": [2248.14180099474, 9163.85284431579],
+          "discharge_capacity_counter_range_ah": [0.002087129204673, 1.44331594590804],
+          "following_cutoff_transition": {
+            "step": 7,
+            "current_a": -0.0001737543498165,
+            "voltage_v": 2.875522,
+            "discharge_capacity_counter_ah": 1.44331602540961
+          },
+          "candidate_discharge_capacity_ah": 1.44331604385062,
+          "candidate_status": "constant_current_discharge_to_approximately_2.75_v_observed; preceding full charge unverified"
+        },
+        "post_discharge_recharge_steps": [9, 10]
+      },
+      "quality_note": "The minimum voltage is approximately 2.75 V, matching the endpoint in the candidate protocol recorded by the prior validation report."
+    },
+    {
+      "file": "PL10_row18_Single_Cycle.csv",
+      "cell_id": "PL10",
+      "source_outer_row": 18,
+      "rows": 2056,
+      "cycle_numbers": [1],
+      "step_numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "current_direction_counts": {
+        "negative_rows": 672,
+        "zero_rows": 96,
+        "positive_rows": 1288,
+        "minimum_a": -0.750597894191742,
+        "maximum_a": 0.750268697738647
+      },
+      "voltage_range_v": [2.74958086013794, 4.33431959152222],
+      "charge_capacity_counter_range_ah": [0.0, 1.39444776440985],
+      "discharge_capacity_counter_range_ah": [0.0, 1.39506805645346],
+      "sequence_observed": {
+        "initial_charge_steps": {
+          "steps": [2, 3, 4],
+          "step_2_current_a": [0.749540984630585, 0.749540984630585],
+          "step_3_current_a": [0.0149345707893372, 0.0473170280456543],
+          "step_3_voltage_v": [4.19923496246338, 4.19972133636475],
+          "charge_counter_at_end_ah": 0.006188598429679,
+          "interpretation": "Observed short positive-current event and low-current activity near 4.2 V; the recorded preceding charge counter is small. This does not verify a complete full charge."
+        },
+        "candidate_constant_current_discharge": {
+          "step": 6,
+          "csv_row_range_including_header": [130, 798],
+          "rows": 669,
+          "current_range_a": [-0.750597894191742, -0.749870240688324],
+          "voltage_start_v": 4.04244518280029,
+          "voltage_min_v": 2.74958086013794,
+          "voltage_end_v": 2.74958086013794,
+          "time_range_sec": [1264.25009086097, 7948.10498156175],
+          "discharge_capacity_counter_range_ah": [0.00208735343355, 1.39506797628092],
+          "following_cutoff_transition": {
+            "step": 7,
+            "current_a": -0.0007100105285645,
+            "voltage_v": 2.90718007087708,
+            "discharge_capacity_counter_ah": 1.39506801635259
+          },
+          "candidate_discharge_capacity_ah": 1.39506805645346,
+          "candidate_status": "constant_current_discharge_to_approximately_2.75_v_observed; preceding full charge unverified"
+        },
+        "post_discharge_recharge_steps": [9, 10]
+      },
+      "quality_note": "The minimum voltage is approximately 2.75 V, matching the endpoint in the candidate protocol recorded by the prior validation report. The 4.3343 V maximum occurs in a single early row and exceeds the approximately 4.2 V charge plateau seen in the other records; it is flagged, not treated as a validated charge cutoff."
+    }
+  ],
+  "within_cell_comparison": {
+    "capacity_comparison_measure": "Maximum recorded Discharge_Ah counter per single-cycle export; the counter is documented as cumulative Ah. This is an observed counter value, not yet an approved reference capacity.",
+    "PL03": {
+      "row02_capacity_ah": 1.38382075319124,
+      "row18_capacity_ah": 1.36382552556828,
+      "row18_minus_row02_ah": -0.01999522762296002,
+      "relative_change_percent_vs_row02": -1.4449290182163308
+    },
+    "PL10": {
+      "row02_capacity_ah": 1.44331604385062,
+      "row18_capacity_ah": 1.39506805645346,
+      "row18_minus_row02_ah": -0.048247987397159964,
+      "relative_change_percent_vs_row02": -3.342856722387652
+    },
+    "interpretation": "Both later exports have lower recorded discharge counters. The differences are descriptive only: files are identified by source operation rows, the bundled Readme does not state that these are reference tests, and full-charge preconditioning has not been established."
+  },
+  "protocol_assessment": {
+    "observed_evidence": [
+      "Each file contains one cycle number and Steps 1 through 12.",
+      "Step 6 is a sustained negative-current interval near -0.75 A and voltage declines to approximately 2.75 V.",
+      "The discharge current magnitude is near C/2 if the Readme's 1.5 Ah cell rating is used (0.75 A nominal); the bundled Readme itself describes the test at C/2.",
+      "Steps 9 and 10 after the discharge contain positive current, voltage near 4.2 V, and tapering/variable current, consistent with a recharge sequence."
+    ],
+    "not_verified": [
+      "A complete full CCCV charge immediately before each candidate discharge: the files begin near 4.17-4.19 V and the recorded Charge_Ah counter before Step 6 is only approximately 0.006-0.037 Ah.",
+      "That the 'Single Cycle' operation label is specifically a full-capacity characterization or reference-performance test.",
+      "That the candidate discharge capacity counters meet a documented endpoint/acceptance rule or can serve as the battery's SOH reference capacity."
+    ],
+    "conclusion": "The negative-current Step 6 profiles are strong candidates for constant-current discharge to a lower-voltage cutoff, and their approximate 0.75 A current and 2.75 V endpoints align with the candidate CC-discharge portion of the prior validation report. The bundled Readme does not document the full-capacity CCCV characterization procedure, and a preceding complete full charge is not evidenced by these files. Therefore the profiles are not approved as validated full-capacity reference tests, and no SOH reference or label should be derived from them without clarification from the CALCE protocol/source."
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "config_id": "nasa_fy08q4:nasa_first_positive:xgboost",
+  "dataset": "NASA PCoE FY08Q4",
+  "model": {
+    "name": "XGBoost",
+    "artifact_path": "models/nasa_first_positive_retention_xgboost.json"
+  },
+  "sequence_models": {
+    "lstm": "models/nasa_first_positive_retention_lstm.pt",
+    "gru": "models/nasa_first_positive_retention_gru.pt",
+    "cnn_lstm": "models/nasa_first_positive_retention_cnn_lstm.pt"
+  },
+  "feature_order": [
+    "cycle_index_in_file"
+  ],
+  "input_constraints": {
+    "type": "integer",
+    "minimum": 2,
+    "maximum": 614,
+    "range_basis": "Observed training-cell feature range (B0005 and B0018), 300 training observations."
+  },
+  "target": {
+    "name": "first_positive_measurement_capacity_retention_percent",
+    "label": "First-positive-measurement capacity retention",
+    "definition": "Discharge capacity divided by this battery's first positive measured discharge capacity, multiplied by 100.",
+    "unit": "% capacity retention",
+    "metric_error_unit": "percentage points",
+    "reference_observations": 1,
+    "interpretation": "Provisional operational capacity-retention proxy; not certified physical or manufacturer-rated SOH."
+  },
+  "preprocessing": {
+    "kind": "median_impute_then_standardize",
+    "imputer_statistics": [
+      214.0
+    ],
+    "mean": [
+      236.92333333333335
+    ],
+    "scale": [
+      163.72201273975213
+    ]
+  },
+  "evaluation": {
+    "source_report": "results/nasa_capacity_retention_metrics.json",
+    "primary_target": "first_positive_measurement_capacity_retention_percent",
+    "split_method": "battery-grouped train/validation/test",
+    "seed": 42,
+    "train_batteries": [
+      "B0005",
+      "B0018"
+    ],
+    "validation_batteries": [
+      "B0007"
+    ],
+    "test_batteries": [
+      "B0006"
+    ],
+    "test_rows": 149,
+    "test_warmup": "First 19 discharge observations omitted for 20-observation sequence eligibility in the shared comparison.",
+    "model_results": {
+      "linear_cycle_trend_baseline_paired": {
+        "name": "Linear Cycle-Trend Baseline",
+        "n": 149,
+        "mae_percentage_points": 6.536911566750488,
+        "rmse_percentage_points": 7.073485221517558,
+        "mape_percent": 9.472898511041251,
+        "mape_zero_targets_excluded": 0,
+        "r2": 0.5585562590332878,
+        "notes": "Simple linear degradation trend fitted on training cells"
+      },
+      "xgboost": {
+        "name": "XGBoost Regressor",
+        "n": 149,
+        "mae_percentage_points": 7.972940043305756,
+        "rmse_percentage_points": 8.480971318193465,
+        "mape_percent": 11.535802930404323,
+        "mape_zero_targets_excluded": 0,
+        "r2": 0.36540060830557364,
+        "notes": "Gradient-boosted decision trees on cycle index"
+      },
+      "lstm": {
+        "name": "LSTM Sequence Regressor",
+        "n": 149,
+        "mae_percentage_points": 8.676192278451353,
+        "rmse_percentage_points": 10.76123537868476,
+        "mape_percent": 11.5817060653749,
+        "mape_zero_targets_excluded": 0,
+        "r2": -0.021721951046429933,
+        "notes": "2-layer LSTM on 20-cycle chronological history"
+      },
+      "cnn_lstm": {
+        "name": "Hybrid CNN-LSTM",
+        "n": 149,
+        "mae_percentage_points": 9.24888094518736,
+        "rmse_percentage_points": 12.126926867336687,
+        "mape_percent": 11.715416417044784,
+        "mape_zero_targets_excluded": 0,
+        "r2": -0.29750780676651245,
+        "notes": "1D CNN temporal feature extractor + LSTM"
+      },
+      "gru": {
+        "name": "GRU Sequence Regressor",
+        "n": 149,
+        "mae_percentage_points": 12.217509585106459,
+        "rmse_percentage_points": 13.906047241756815,
+        "mape_percent": 18.05059278796608,
+        "mape_zero_targets_excluded": 0,
+        "r2": -0.7061447079441152,
+        "notes": "2-layer GRU on 20-cycle chronological history"
+      },
+      "training_mean_baseline": {
+        "name": "Training-Mean Baseline",
+        "n": 149,
+        "mae_percentage_points": 13.121319528224197,
+        "rmse_percentage_points": 15.041451154779985,
+        "mape_percent": 19.515064871337174,
+        "mape_zero_targets_excluded": 0,
+        "r2": -0.9961259379762302,
+        "notes": "Constant mean capacity retention of training cells"
+      }
+    },
+    "comparison_note": "Identical 149 eligible test observations on held-out battery B0006. The simple linear cycle-trend baseline achieves lower RMSE (7.073 pp) and MAE (6.537 pp) than XGBoost and deep sequence models. Deep sequence models show negative R² due to cross-cell distribution shift."
+  },
+  "proxy_notice": "Research estimate only. This comparison evaluates dataset-level capacity-retention models from cycle history on NASA PCoE battery cells. It is not personalized to an individual battery or vehicle and is not certified physical SOH.",
+  "limitations": [
+    "The target is each NASA battery's capacity divided by its own first positive measured capacity; it is an operational proxy, not a certified physical SOH reference.",
+    "Evaluation uses one unseen test battery (B0006), with 149 scored observations after 19-cycle warmup.",
+    "On the same test rows, linear cycle-trend baseline RMSE (7.073 pp) is lower than XGBoost RMSE (8.481 pp), LSTM (10.761 pp), CNN-LSTM (12.127 pp), and GRU (13.906 pp).",
+    "Deep sequence models yield negative R² on unseen cell B0006, honestly reflecting cross-cell domain transfer limitations.",
+    "NASA README and battery-specific discharge protocol cutoff descriptions differ; the local source did not resolve that discrepancy."
+  ]
+}

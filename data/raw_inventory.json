@@ -1,0 +1,420 @@
+[
+  {
+    "file": "data\\raw\\NASA\\B0005.mat",
+    "status": "ok",
+    "variables": [
+      "B0005"
+    ],
+    "cycle_count": 616,
+    "cycle_types": {
+      "charge": 170,
+      "discharge": 168,
+      "impedance": 278
+    },
+    "cycles_with_capacity": 168,
+    "capacity_examples_Ah": [
+      1.8564874208181574,
+      1.846327249719927,
+      1.8353491942234077
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0006.mat",
+    "status": "ok",
+    "variables": [
+      "B0006"
+    ],
+    "cycle_count": 616,
+    "cycle_types": {
+      "charge": 170,
+      "discharge": 168,
+      "impedance": 278
+    },
+    "cycles_with_capacity": 168,
+    "capacity_examples_Ah": [
+      2.035337591005598,
+      2.0251402460314116,
+      2.013326371345464
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0007.mat",
+    "status": "ok",
+    "variables": [
+      "B0007"
+    ],
+    "cycle_count": 616,
+    "cycle_types": {
+      "charge": 170,
+      "discharge": 168,
+      "impedance": 278
+    },
+    "cycles_with_capacity": 168,
+    "capacity_examples_Ah": [
+      1.89105229539079,
+      1.880637027686859,
+      1.8806626717011388
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0018.mat",
+    "status": "ok",
+    "variables": [
+      "B0018"
+    ],
+    "cycle_count": 319,
+    "cycle_types": {
+      "charge": 134,
+      "impedance": 53,
+      "discharge": 132
+    },
+    "cycles_with_capacity": 132,
+    "capacity_examples_Ah": [
+      1.8550045207910817,
+      1.8431955317089987,
+      1.8396018424355423
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0025.mat",
+    "status": "ok",
+    "variables": [
+      "B0025"
+    ],
+    "cycle_count": 80,
+    "cycle_types": {
+      "impedance": 21,
+      "charge": 31,
+      "discharge": 28
+    },
+    "cycles_with_capacity": 28,
+    "capacity_examples_Ah": [
+      1.847011162956716,
+      1.8485654344528386,
+      1.847111177186175
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0026.mat",
+    "status": "ok",
+    "variables": [
+      "B0026"
+    ],
+    "cycle_count": 80,
+    "cycle_types": {
+      "impedance": 21,
+      "charge": 31,
+      "discharge": 28
+    },
+    "cycles_with_capacity": 28,
+    "capacity_examples_Ah": [
+      1.8132504303869899,
+      1.8149760087078302,
+      1.8135354175561993
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0027.mat",
+    "status": "ok",
+    "variables": [
+      "B0027"
+    ],
+    "cycle_count": 80,
+    "cycle_types": {
+      "impedance": 21,
+      "charge": 31,
+      "discharge": 28
+    },
+    "cycles_with_capacity": 28,
+    "capacity_examples_Ah": [
+      1.8233077742149364,
+      1.8142384651167962,
+      1.8128596793130867
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0028.mat",
+    "status": "ok",
+    "variables": [
+      "B0028"
+    ],
+    "cycle_count": 80,
+    "cycle_types": {
+      "impedance": 21,
+      "charge": 31,
+      "discharge": 28
+    },
+    "cycles_with_capacity": 28,
+    "capacity_examples_Ah": [
+      1.8046847720100736,
+      1.8047833214525881,
+      1.797618668222458
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0029.mat",
+    "status": "ok",
+    "variables": [
+      "B0029"
+    ],
+    "cycle_count": 97,
+    "cycle_types": {
+      "impedance": 17,
+      "discharge": 40,
+      "charge": 40
+    },
+    "cycles_with_capacity": 40,
+    "capacity_examples_Ah": [
+      1.697507332205763,
+      1.844701206961174,
+      1.8254376674722927
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0030.mat",
+    "status": "ok",
+    "variables": [
+      "B0030"
+    ],
+    "cycle_count": 97,
+    "cycle_types": {
+      "impedance": 17,
+      "discharge": 40,
+      "charge": 40
+    },
+    "cycles_with_capacity": 40,
+    "capacity_examples_Ah": [
+      1.6560706096175404,
+      1.7815548749509116,
+      1.761969227822918
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0031.mat",
+    "status": "ok",
+    "variables": [
+      "B0031"
+    ],
+    "cycle_count": 97,
+    "cycle_types": {
+      "impedance": 17,
+      "discharge": 40,
+      "charge": 40
+    },
+    "cycles_with_capacity": 40,
+    "capacity_examples_Ah": [
+      1.6666751942525773,
+      1.8328583629543174,
+      1.8139835002945137
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0032.mat",
+    "status": "ok",
+    "variables": [
+      "B0032"
+    ],
+    "cycle_count": 97,
+    "cycle_types": {
+      "impedance": 17,
+      "discharge": 40,
+      "charge": 40
+    },
+    "cycles_with_capacity": 40,
+    "capacity_examples_Ah": [
+      1.7048641073512139,
+      1.8940319526948572,
+      1.8747686491853095
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0033.mat",
+    "status": "ok",
+    "variables": [
+      "B0033"
+    ],
+    "cycle_count": 486,
+    "cycle_types": {
+      "discharge": 197,
+      "impedance": 92,
+      "charge": 197
+    },
+    "cycles_with_capacity": 197,
+    "capacity_examples_Ah": [
+      0.06842572240601812,
+      0.6895699007862814,
+      1.1610848192311252
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0034.mat",
+    "status": "ok",
+    "variables": [
+      "B0034"
+    ],
+    "cycle_count": 486,
+    "cycle_types": {
+      "discharge": 197,
+      "impedance": 92,
+      "charge": 197
+    },
+    "cycles_with_capacity": 197,
+    "capacity_examples_Ah": [
+      0.7459302957645664,
+      1.6623217152845853,
+      1.645087369694532
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0036.mat",
+    "status": "ok",
+    "variables": [
+      "B0036"
+    ],
+    "cycle_count": 486,
+    "cycle_types": {
+      "discharge": 197,
+      "impedance": 92,
+      "charge": 197
+    },
+    "cycles_with_capacity": 197,
+    "capacity_examples_Ah": [
+      1.001982588175331,
+      1.8011007566288924,
+      1.8044229856020628
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0038.mat",
+    "status": "ok",
+    "variables": [
+      "B0038"
+    ],
+    "cycle_count": 122,
+    "cycle_types": {
+      "discharge": 47,
+      "impedance": 28,
+      "charge": 47
+    },
+    "cycles_with_capacity": 47,
+    "capacity_examples_Ah": [
+      0.8980573709676724,
+      1.1026236331914077,
+      1.0885801879473431
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0039.mat",
+    "status": "ok",
+    "variables": [
+      "B0039"
+    ],
+    "cycle_count": 122,
+    "cycle_types": {
+      "discharge": 47,
+      "impedance": 28,
+      "charge": 47
+    },
+    "cycles_with_capacity": 47,
+    "capacity_examples_Ah": [
+      0.11903831859341765,
+      0.4729861500927512,
+      0.16280793829202067
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0040.mat",
+    "status": "ok",
+    "variables": [
+      "B0040"
+    ],
+    "cycle_count": 122,
+    "cycle_types": {
+      "discharge": 47,
+      "impedance": 28,
+      "charge": 47
+    },
+    "cycles_with_capacity": 47,
+    "capacity_examples_Ah": [
+      0.6734628137095633,
+      0.7913062105760345,
+      0.7865824034601745
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0041.mat",
+    "status": "ok",
+    "variables": [
+      "B0041"
+    ],
+    "cycle_count": 163,
+    "cycle_types": {
+      "discharge": 67,
+      "charge": 67,
+      "impedance": 29
+    },
+    "cycles_with_capacity": 67,
+    "capacity_examples_Ah": [
+      0.055620243768194036,
+      0.05569747261227687,
+      0.05583901629185397
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0042.mat",
+    "status": "ok",
+    "variables": [
+      "B0042"
+    ],
+    "cycle_count": 275,
+    "cycle_types": {
+      "charge": 113,
+      "impedance": 50,
+      "discharge": 112
+    },
+    "cycles_with_capacity": 112,
+    "capacity_examples_Ah": [
+      1.7287126633755356,
+      1.7314706281853145,
+      1.7282350363146088
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0043.mat",
+    "status": "ok",
+    "variables": [
+      "B0043"
+    ],
+    "cycle_count": 275,
+    "cycle_types": {
+      "charge": 113,
+      "impedance": 50,
+      "discharge": 112
+    },
+    "cycles_with_capacity": 112,
+    "capacity_examples_Ah": [
+      1.713782642126885,
+      1.6955681658647108,
+      1.6814906372051954
+    ]
+  },
+  {
+    "file": "data\\raw\\NASA\\B0044.mat",
+    "status": "ok",
+    "variables": [
+      "B0044"
+    ],
+    "cycle_count": 275,
+    "cycle_types": {
+      "charge": 113,
+      "impedance": 50,
+      "discharge": 112
+    },
+    "cycles_with_capacity": 112,
+    "capacity_examples_Ah": [
+      1.686525555152074,
+      1.6624606531639186,
+      1.6534010755700512
+    ]
+  }
+]

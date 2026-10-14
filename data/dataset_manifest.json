@@ -1,0 +1,247 @@
+{
+  "schema_version": "1.0",
+  "datasets": [
+    {
+      "source": "NASA PCoE Li-ion Battery Aging Dataset",
+      "source_url": "https://data.nasa.gov/dataset/li-ion-battery-aging-datasets",
+      "status": "processed_not_training_ready",
+      "raw_path": "data/raw/NASA",
+      "raw_files": [
+        "data/raw/NASA/B0005.mat",
+        "data/raw/NASA/B0006.mat",
+        "data/raw/NASA/B0007.mat",
+        "data/raw/NASA/B0018.mat",
+        "data/raw/NASA/B0025.mat",
+        "data/raw/NASA/B0026.mat",
+        "data/raw/NASA/B0027.mat",
+        "data/raw/NASA/B0028.mat",
+        "data/raw/NASA/B0029.mat",
+        "data/raw/NASA/B0030.mat",
+        "data/raw/NASA/B0031.mat",
+        "data/raw/NASA/B0032.mat",
+        "data/raw/NASA/B0033.mat",
+        "data/raw/NASA/B0034.mat",
+        "data/raw/NASA/B0036.mat",
+        "data/raw/NASA/B0038.mat",
+        "data/raw/NASA/B0039.mat",
+        "data/raw/NASA/B0040.mat",
+        "data/raw/NASA/B0041.mat",
+        "data/raw/NASA/B0042.mat",
+        "data/raw/NASA/B0043.mat",
+        "data/raw/NASA/B0044.mat"
+      ],
+      "raw_file_count": 22,
+      "processed_file": "data/processed/battery_measurements.csv",
+      "quality_report": "data/processed/nasa_quality_report.json",
+      "sample_count": 2040,
+      "raw_discharge_cycles": 2043,
+      "excluded_observation_count": 3,
+      "review_flagged_row_count": 210,
+      "battery_count": 22,
+      "observed_measurements": {
+        "capacity_ah": {
+          "units": "Ah",
+          "definition": "NASA discharge-cycle capacity field"
+        },
+        "voltage_mean": {
+          "units": "V"
+        },
+        "current_mean": {
+          "units": "A"
+        },
+        "temperature_mean": {
+          "units": "degC"
+        },
+        "ambient_temperature_c": {
+          "units": "degC"
+        }
+      },
+      "calculated_targets": {
+        "soh_percent": {
+          "units": "%",
+          "definition": "100 * discharge capacity / median of the first 10 valid positive discharge capacities per battery",
+          "status": "provisional_not_ready_for_benchmark_training"
+        }
+      },
+      "preprocessing_status": "Positive unusual capacities are retained and flagged. Missing, non-finite, and non-positive capacities are excluded with source cycle and reason in the preparation report. Capacity review thresholds are non-scientific triage flags.",
+      "training_status": "Blocked: current low-capacity observations and target reference are unresolved; protocols differ across batteries."
+    },
+    {
+      "source": "CALCE CS2 battery cycling data",
+      "source_url": "https://calce.umd.edu/data",
+      "status": "official_source_verified_not_acquired_license_unspecified",
+      "sample_count": null,
+      "documented_formats": [
+        "Arbin cell test files: Excel collections",
+        "CADEX files for CS2_8 and CS2_21: TXT"
+      ],
+      "candidate_data": "Official page documents 1.1 Ah CS2 cells, CC/CV charging, usually 2.7 V discharge cut-off, multiple cycling profiles, and file collections. No specific data license is stated; actual capacity channels, units, and archive sizes remain unverified until authorized files are inspected.",
+      "terms": "CALCE describes the data as open access and requests citation for publications; the official page does not identify a dataset-specific license.",
+      "parser_status": "not_implemented"
+    },
+    {
+      "source": "CALCE PL pouch-cell aging data (0-60% SOC, C/2; PL03 and PL10)",
+      "source_url": "https://calce.umd.edu/battery-data",
+      "archive_url": "https://web.calce.umd.edu/batteries/data/pl/SOC_0-60_HalfC.zip",
+      "status": "acquired_source_tables_not_decoded",
+      "raw_path": "data/raw/CALCE",
+      "raw_files": [
+        "data/raw/CALCE/PL_SOC_0-60_HalfC.zip",
+        "data/raw/CALCE/SOC_0%-60%_HalfC/PL03.mat",
+        "data/raw/CALCE/SOC_0%-60%_HalfC/PL10.mat",
+        "data/raw/CALCE/SOC_0%-60%_HalfC/Readme.txt"
+      ],
+      "archive_size_bytes": 89357014,
+      "sample_count": null,
+      "battery_count": 2,
+      "documented_cell": "1.5 Ah graphite/LiCoO2 pouch cells",
+      "documented_test_conditions": "0%-60% SOC cycling at C/2 and room temperature (25 +/- 2 degC); official page describes full-capacity characterization at C/2 between 2.75 V and 4.2 V every 50 or 100 partial cycles.",
+      "documented_formats": [
+        "MATLAB 5.0 .mat files with MATLAB MCOS table objects",
+        "Included Readme.txt"
+      ],
+      "documented_measurements": {
+        "time": "s",
+        "date_time": "MATLAB serial date number",
+        "step": "Arbin step index",
+        "cycle": "Arbin cycle number",
+        "current": "A; positive for charge, negative for discharge",
+        "voltage": "V",
+        "charge": "cumulative Ah",
+        "discharge": "cumulative Ah"
+      },
+      "observed_operation_blocks_per_battery": 24,
+      "known_missing_data_operation_blocks_per_battery": 2,
+      "quality_report": "data/processed/CALCE/calce_pl_0_60_quality_report.json",
+      "candidate_soh_definition": "For a verified full C/2 characterization discharge from 4.2 V to 2.75 V, 100 * measured discharge capacity / that cell's first verified full characterization discharge capacity.",
+      "target_status": "candidate_definition_documented_measurements_not_decoded",
+      "terms": "The official CALCE page describes the data as open access and requests citation for publications. No dataset-specific reuse license was identified; no redistribution rights are inferred.",
+      "parser_status": "blocked_matlab_mcos_table_objects",
+      "training_status": "Blocked: the measured table payloads remain undecoded, so cycle counts, capacity values, duplicates, units in the actual records, reference-cycle matching, and labels cannot yet be validated."
+    },
+    {
+      "source": "Oxford Battery Degradation Dataset 1",
+      "source_url": "https://ora.ox.ac.uk/objects/uuid:03ba4b01-cfed-46d3-9b1a-7d4a7bdf6fac",
+      "status": "official_record_verified_not_acquired_license_and_payload_unverified",
+      "doi": "10.5287/bodleian:KO2kdmYGg",
+      "sample_count": null,
+      "documented_population": "Eight Kokam SLPB533459H4 740 mAh lithium-ion pouch cells",
+      "documented_format": "The official record refers to readme.txt; the payload file formats and measured channels could not be verified from the public metadata.",
+      "terms": "No explicit reuse license or dataset terms were visible in the official record metadata reviewed.",
+      "parser_status": "not_implemented"
+    },
+    {
+      "source": "Vehicle Energy Dataset",
+      "source_url": "https://github.com/gsoh/VED/tree/6baa4963782d515a67d32a5490bd5d11f5d9bf0d",
+      "status": "processed_derived_trip_energy_not_range_not_training_ready",
+      "license": "The source repository states Apache License 2.0; scope over bundled measurements is not separately described. Acquired for local inspection only; do not redistribute.",
+      "sample_count": 504,
+      "documented_formats": [
+        "Weekly dynamic CSV files in two 7z archives (82,723,769 and 93,662,910 bytes)",
+        "Vehicle specifications in two XLSX files"
+      ],
+      "documented_fields": [
+        "Vehicle and trip IDs",
+        "GPS coordinates and speed",
+        "Outside-air temperature",
+        "High-voltage battery current, voltage, and SOC"
+      ],
+      "target_definition": "Trip distance and energy would be derived from telemetry; not supplied as direct per-trip labels in the documented schema.",
+      "ev_coverage_limitation": "Three pure EVs are reported, all 2013 Nissan Leafs; weather fields documented are limited to outside-air temperature.",
+      "derived_targets": "Trip distance can be estimated from GPS; trip energy can be estimated by integrating high-voltage battery current and voltage. Neither is documented as a supplied trip label.",
+      "parser_status": "source_specific_parser_completed",
+      "raw_path": "data/raw/VED",
+      "raw_files": [
+        "data/raw/VED/VED_DynamicData_Part1.7z",
+        "data/raw/VED/VED_DynamicData_Part2.7z",
+        "data/raw/VED/VED_Static_Data_PHEV_EV.xlsx"
+      ],
+      "processed_file": "data/processed/ved/ved_ev_trip_measurements.csv",
+      "quality_report": "data/processed/ved/ved_ev_quality_report.json",
+      "vehicle_count": 3,
+      "observed_measurements": [
+        "GPS latitude/longitude",
+        "vehicle speed (km/h)",
+        "outside-air temperature (degC)",
+        "HV battery current (A)",
+        "HV battery voltage (V)",
+        "HV battery SOC (%)"
+      ],
+      "calculated_targets": {
+        "energy_consumed_kwh": {
+          "definition": "Negative integral of source HV battery current times voltage over valid intervals, retained only when sign agrees with a decrease in recorded SOC.",
+          "status": "derived_trip_energy_not_vehicle_range"
+        },
+        "speed_integrated_distance_km": {
+          "definition": "Trapezoidal integration of recorded vehicle speed over valid timestamp intervals.",
+          "status": "derived_distance_not_odometer_measurement"
+        }
+      },
+      "training_status": "Not ready for range prediction: trip range is not supplied, energy labels are derived and quality-filtered, and only three pure EV identities are available."
+    },
+    {
+      "source": "EPA FuelEconomy.gov all-model-year vehicle data",
+      "source_url": "https://www.fueleconomy.gov/feg/epadata/vehicles.csv",
+      "status": "processed_standardized_EPA_vehicle_range_not_real_world",
+      "local_raw_path": "data/raw/EPA/vehicles.csv",
+      "processed_file": "data/processed/epa/epa_ev_range.csv",
+      "quality_report": "data/processed/epa/epa_ev_range_quality_report.json",
+      "license": "The official download/documentation pages reviewed do not state a dataset-specific license or usage terms; verify before reuse.",
+      "raw_record_count": 50407,
+      "valid_record_count": 1608,
+      "excluded_record_counts": {
+        "not_pure_battery_electric": 48799,
+        "missing_or_invalid_range": 0
+      },
+      "duplicate_source_record_count": 0,
+      "duplicate_checks": {
+        "exact_configuration_duplicate_rows": 0,
+        "repeated_model_input_signature_rows": 282,
+        "cross_identity_input_signature_groups": 9,
+        "cross_identity_input_signature_rows": 18
+      },
+      "vehicle_identity_count": 134,
+      "target_definition": {
+        "column": "epa_range_miles",
+        "units": "miles",
+        "definition": "EPA combined all-electric vehicle range estimate in the official vehicle table; standardized estimate, not observed real-world trip range.",
+        "observed_range": {
+          "min": 29.0,
+          "max": 520.0
+        }
+      },
+      "preprocessing_status": "separate_source_specific_pipeline",
+      "training_status": "XGBoost evaluated for standardized EPA vehicle/configuration range; not real-world trip range.",
+      "model_artifact": "models\\epa_range_xgboost.joblib",
+      "evaluation_report": "results\\epa_range_metrics.json",
+      "test_predictions": "results\\epa_range_test_predictions.csv",
+      "evaluation_split_strategy": "manufacturer make groups, additionally joined across makes when model-input signatures are identical"
+    },
+    {
+      "source": "VED Initial-Window EV Trip Distance Dataset",
+      "source_url": "https://github.com/gsoh/VED/tree/6baa4963782d515a67d32a5490bd5d11f5d9bf0d",
+      "status": "processed_initial_window_trip_distance_research_ready",
+      "raw_path": "data/raw/trip_distance/ved_eligible_raw_telemetry.csv",
+      "processed_file": "data/processed/ved/ved_trip_distance_dataset.csv",
+      "sequences_file": "data/processed/ved/ved_trip_distance_sequences.npz",
+      "quality_report": "data/processed/ved/ved_trip_distance_quality_report.json",
+      "split_manifest": "data/processed/ved/ved_trip_distance_split_manifest.json",
+      "target_definition_file": "data/processed/ved/ved_trip_distance_target_definition.json",
+      "sample_count": 51,
+      "vehicle_count": 3,
+      "vehicle_identities": ["10", "455", "541"],
+      "observation_window_duration_s": 30.0,
+      "sampling_rate_hz": 1.0,
+      "target_definition": {
+        "column": "total_trip_distance_km",
+        "units": "kilometres",
+        "definition": "Trapezoidal integration of vehicle speed over completed trip for pure-EV trips with >= 95% speed-distance coverage. Estimated at t = 30 seconds."
+      },
+      "training_status": "Ready for four-model evaluation (Baseline, XGBoost, LSTM, GRU, CNN-LSTM) with Vehicle 10 held out as test.",
+      "limitations": [
+        "Dataset contains only three 2013 Nissan Leafs; cannot claim generalization across vehicle types.",
+        "Target is total trip distance in km, not remaining driving range or battery state-of-health."
+      ]
+    }
+  ]
+}
